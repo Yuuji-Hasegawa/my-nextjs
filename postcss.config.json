@@ -1,0 +1,23 @@
+{
+  "plugins": [
+    "postcss-flexbugs-fixes",
+    [
+      "postcss-preset-env",
+      {
+        "stage": 3,
+        "autoprefixer": {
+          "grid": false
+        },
+        "features": {
+          "custom-properties": false
+        }
+      }
+    ],
+    [
+      "css-declaration-sorter",
+      {
+        "order": "concentric-css"
+      }
+    ]
+  ]
+}
