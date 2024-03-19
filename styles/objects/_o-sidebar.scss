@@ -1,0 +1,10 @@
+@use "../settings" as setting;
+
+.o-sidebar {
+	--space: #{setting.f-get-space(l)};
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space);
+
+}

@@ -1,0 +1,15 @@
+@use "../settings" as setting;
+
+.o-switcher {
+	--space: #{setting.f-get-space(l)};
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space);
+
+	& > * {
+		flex-basis: calc((setting.$breakm - 100%) * 999);
+		flex-grow: 1;
+		max-width: 100%;
+	}
+}

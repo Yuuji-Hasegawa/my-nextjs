@@ -1,6 +1,19 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+import path from 'path';
+import stylexPlugin from '@stylexjs/nextjs-plugin';
 
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
+const nextConfig = {
 };
 
-export default nextConfig;
+const stylexConfig = stylexPlugin({
+  aliases: {
+    '@/*': [path.join(__dirname, '*')],
+  },
+  rootDir: __dirname,
+})(nextConfig);
+
+export default stylexConfig;
+
+//export default nextConfig;

@@ -1,0 +1,31 @@
+@use "../settings" as setting;
+@use "sass:map";
+
+.o-frame {
+	--aspect-ratio: #{map.get(setting.$aspect, wide)};
+	--border-radius: 0;
+
+	position: relative;
+	display: block;
+	width: 100%;
+	aspect-ratio: var(--aspect-ratio);
+	overflow: hidden;
+
+	> * {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    place-items: center;
+    overflow: hidden;
+		border-radius: var(--border-radius);
+  }
+
+	> source,
+  > img,
+  > video {
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    object-fit: cover;
+  }
+}

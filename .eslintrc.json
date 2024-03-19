@@ -6,8 +6,9 @@
 		"plugin:import/warnings",
 		"prettier"
 	],
-	"plugins": ["unused-imports"],
+	"plugins": ["unused-imports", "@stylexjs"],
 	"rules": {
+		"@stylexjs/valid-styles": "error",
 		"import/no-unresolved": "off",
 		"no-unused-vars": "off",
 		"@next/next/no-img-element": "off",

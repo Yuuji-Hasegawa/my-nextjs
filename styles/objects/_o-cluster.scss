@@ -1,0 +1,13 @@
+@use "../settings" as setting;
+
+.o-cluster {
+	--space: #{setting.f-get-space(m)};
+	--justify-content: normal;
+	--align-items: normal;
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space);
+	align-items: var(--align-items);
+	justify-content: var(--justify-content);
+}
