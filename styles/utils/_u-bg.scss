@@ -1,0 +1,12 @@
+@use "sass:map";
+@use "../settings" as setting;
+
+.u-bg-primary {
+	background: map.get(setting.$pickupColor, bg-primary);
+	color: map.get(setting.$pickupColor, text-primary);
+}
+
+.u-bg-quaternary {
+	background: map.get(setting.$pickupColor, bg-quaternary);
+	color: map.get(setting.$pickupColor, text-primary);
+}

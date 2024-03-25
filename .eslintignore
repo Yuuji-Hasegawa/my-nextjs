@@ -4,5 +4,3 @@ out
 public
 next.config.js
 postcss.config.js
-.babelrc.js
-babel.config.js

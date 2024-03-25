@@ -1,0 +1,36 @@
+@use "sass:map";
+@use "../settings" as setting;
+@use "../tools" as tool;
+
+.c-hero {
+	--space: clamp(#{setting.f-get-space(xl)}, #{map.get(setting.$breakpoints,overm)}, #{setting.f-get-space(3xl)});
+	&__text {
+		flex-grow: 1;
+		@include tool.max-screen(1240px) {
+			order: 2;
+		}
+	}
+	&__pict {
+		text-align: center;
+		overflow: hidden;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.c-hero-mark {
+	font-size: clamp((100svh - (112px + 56px + setting.f-get-space(2xl))), map.get(setting.$breakpoints,overm), 100svh - 56px);
+}
+
+.c-hero-top {
+	font-size: clamp(setting.f-font-size(m), map.get(setting.$breakpoints,overm), setting.f-font-size(3xl));
+	margin-bottom: clamp(setting.f-get-space(xs), map.get(setting.$breakpoints,overm), setting.f-get-space(s));
+}
+.c-hero-middle {
+	display: inherit;
+	font-size: clamp(setting.f-font-size(m) + setting.f-font-size(3xl), map.get(setting.$breakpoints,overm), setting.f-font-size(6xl) - setting.f-font-size(6xs));
+	margin-bottom: clamp(setting.f-get-space(s), map.get(setting.$breakpoints,overm), setting.f-get-space(l));
+}
+.c-hero-bottom {
+	font-size: clamp(setting.f-font-size(l), map.get(setting.$breakpoints,overm), setting.f-font-size(m) + setting.f-font-size(2xl));
+}

@@ -1,0 +1,55 @@
+@use "sass:map";
+@use "../settings" as setting;
+
+#sidebar {
+	padding: 0 clamp(#{setting.f-get-space(m)}, #{map.get(setting.$breakpoints,overm)}, #{setting.f-get-space(xl)}) 0 var(--space);
+	position: fixed;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	max-width: max-content;
+  box-shadow: 0 0 1px rgba(map.get(setting.$pickupColor, text-tertiary), .7);
+	visibility: hidden;
+  opacity: 0;
+	pointer-events: none;
+	&[aria-hidden="false"] {
+		left: 0;
+		visibility: visible;
+		opacity: 1;
+		pointer-events: auto;
+		body:has(&) {
+      overflow: hidden;
+    }
+		& + .c-sidebar-bg {
+			display: block;
+			visibility: visible;
+			opacity: 1;
+			pointer-events: auto;
+		}
+	}
+}
+.c-sidebar-bg {
+	display: none;
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 998;
+  cursor: pointer;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(map.get(setting.$pickupColor, colored-secondary), .7);
+  pointer-events: none;
+}
+.c-sidebar-bottom {
+	max-height: calc(100% - 56px);
+  overflow-y: scroll;
+	margin-right: calc((-1 * clamp(#{setting.f-get-space(m)}, #{map.get(setting.$breakpoints,overm)}, #{setting.f-get-space(xl)})) + clamp(#{setting.f-get-space(s)}, #{map.get(setting.$breakpoints,overm)}, #{setting.f-get-space(m)}));
+	padding-right: clamp(#{setting.f-get-space(s)}, #{map.get(setting.$breakpoints,overm)}, #{setting.f-get-space(m)});
+}
+.c-sidebar-box {
+	border-bottom: solid var(--border-width) map.get(setting.$pickupColor, text-secondary);
+}

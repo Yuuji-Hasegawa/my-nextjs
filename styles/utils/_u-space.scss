@@ -1,0 +1,76 @@
+@use "sass:map";
+@use "../settings" as setting;
+
+.u-space-outer {
+	--space: clamp(
+    clamp(#{setting.f-get-space(m)}, #{map.get(setting.$breakpoints,overm)}, #{setting.f-get-space(xl)}),
+    #{map.get(setting.$breakpoints,overs)},
+    clamp(#{setting.f-get-space(xl)}, #{map.get(setting.$breakpoints,overm)}, #{setting.f-get-space(3xl)})
+  );
+}
+.u-space-s {
+	--space: #{setting.f-get-space(s)};
+}
+.u-space-m {
+	--space: #{setting.f-get-space(m)};
+}
+
+.u-block-center,
+.u-block-right {
+	margin-left: auto;
+}
+.u-block-center,
+.u-block-left {
+	margin-right: auto;
+}
+
+.u-mt-l {
+	margin-top: setting.f-get-space(l);
+}
+
+.u-mb-s {
+	margin-bottom: setting.f-get-space(s);
+}
+.u-mb-m {
+	margin-bottom: setting.f-get-space(m);
+}
+.u-mb-l {
+	margin-bottom: setting.f-get-space(l);
+}
+
+.u-mr-2xs {
+	margin-right: setting.f-get-space(2xs);
+}
+
+.u-mr-s {
+	margin-right: setting.f-get-space(s);
+}
+
+.u-mr-m {
+	margin-right: setting.f-get-space(m);
+}
+
+.u-pt-s {
+	padding-top: setting.f-get-space(s);
+}
+.u-pt-m {
+	padding-top: setting.f-get-space(m);
+}
+.u-pt-2xl {
+	padding-top: setting.f-get-space(2xl);
+}
+.u-pb-s {
+	padding-bottom: setting.f-get-space(s);
+}
+.u-pb-2xl {
+	padding-bottom: setting.f-get-space(2xl);
+}
+.u-pb-m {
+	padding-bottom: setting.f-get-space(m);
+}
+.u-pl-s {
+	padding-left: setting.f-get-space(s);
+}
+.u-pr-s {
+	padding-right: setting.f-get-space(s);
+}

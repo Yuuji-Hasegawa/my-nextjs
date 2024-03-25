@@ -389,13 +389,13 @@ $brandColors: (
 $lightAccents: (
 	myTint: f-lighten($myAccent, 0.15),
 	myMiddle: $myAccent,
-	myShage: f-darken($myAccent, 0.15),
+	myShade: f-darken($myAccent, 0.15),
 ) !default;
 
 $darkAccents: (
 	myTint: f-lighten($mydarkAccent, 0.15),
 	myMiddle: $mydarkAccent,
-	myShage: f-darken($mydarkAccent, 0.15),
+	myShade: f-darken($mydarkAccent, 0.15),
 ) !default;
 
 $ref-primary: f-palette-gen($myBrand);

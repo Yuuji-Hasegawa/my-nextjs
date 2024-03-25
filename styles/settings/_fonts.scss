@@ -67,14 +67,17 @@ $font-family-en: "Roboto Flex", sans-serif;
 /*!
  * Roboto Flex is licensed under the SIL Open Font License, Version 1.1.
  * http://scripts.sil.org/OFL
- * I have converted my Roboto Flex font(https://fonts.google.com/specimen/Roboto+Flex) from ttf to woff2.
+ * I've converted my Roboto Flex font(https://fonts.google.com/specimen/Roboto+Flex) from ttf to woff2.
  * Yaku Han JP v3.4.1 (OFL-1.1 AND MIT) by Qrac
  * Type: YakuHanJP_Narrow - Based on Noto Sans CJK JP
+ *
+ * Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
+ * I've downloaded the FontAwesome asset directly and use it as an SVG.
+ * I've moved this license information from SVG to CSS to avoid JSX constraints.
  */
 
 @font-face {
 	font-family: "Roboto Flex";
-	font-style: normal;
 	font-weight: 400 900;
 	font-display: optional;
 	src: url("/fonts/RobotoFlex-VariableFont.woff2") format("woff2-variations");

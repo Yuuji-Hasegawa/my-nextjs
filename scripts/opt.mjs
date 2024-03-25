@@ -60,7 +60,15 @@ function getInOut(input, output) {
                 {
                   name: 'removeViewBox',
                   active: false,
-                },
+								},
+								{
+									name: 'removeDimensions',
+									active: true
+								},
+								{
+									name: 'convertPathData',
+									active: true
+								},
               ],
             }),
           ],

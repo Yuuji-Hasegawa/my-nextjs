@@ -1,0 +1,6 @@
+@use "sass:map";
+@use "../settings" as setting;
+
+.u-border-radius-s {
+	--border-radius: #{map.get(setting.$borderRadius, s)};
+}

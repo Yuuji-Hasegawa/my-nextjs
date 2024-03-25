@@ -1,0 +1,54 @@
+@use "sass:map";
+@use "../settings" as setting;
+
+.u-font-size-2xs {
+	font-size: setting.f-font-size(2xs);
+}
+.u-font-size-xs {
+	font-size: setting.f-font-size(xs);
+}
+.u-font-size-s {
+	font-size: setting.f-font-size(s);
+}
+.u-font-size-m {
+	font-size: setting.f-font-size(m);
+}
+.u-font-size-l {
+	font-size: setting.f-font-size(l);
+}
+.u-font-size-xl {
+	font-size: setting.f-font-size(xl);
+}
+.u-font-size-2xl {
+	font-size: setting.f-font-size(2xl);
+}
+.u-font-size-3xl {
+	font-size: setting.f-font-size(3xl);
+}
+.u-font-weight-r {
+	font-weight: map.get(setting.$fontWeight, r);
+}
+.u-font-weight-m {
+	font-weight: map.get(setting.$fontWeight, m);
+}
+.u-font-weight-b {
+	font-weight: map.get(setting.$fontWeight, b);
+}
+.u-font-family-en {
+	font-family: setting.$font-family-en;
+}
+.u-line-height-none {
+	line-height: map.get(setting.$lineHeight, none);
+}
+.u-line-height-s {
+	line-height: map.get(setting.$lineHeight, s);
+}
+.u-line-height-l {
+	line-height: map.get(setting.$lineHeight, l);
+}
+.u-letter-spacing-s {
+	letter-spacing: map.get(setting.$letterSpacing, s);
+}
+.u-letter-spacing-m {
+	letter-spacing: map.get(setting.$letterSpacing, m)
+}

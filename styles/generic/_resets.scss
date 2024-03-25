@@ -16,25 +16,27 @@
 
 :root {
 	--c-accent: #{setting.$myAccent};
+	--c-accent-tint: #{map.get(setting.$lightAccents, myTint)};
+	--c-accent-shade: #{map.get(setting.$lightAccents, myShade)};
 
 	@include tool.darkmode {
 		--c-accent: #{setting.$mydarkAccent};
+		--c-accent-tint: #{map.get(setting.$darkAccents, myTint)};
+		--c-accent-shade: #{map.get(setting.$darkAccents, myShade)};
 	}
 
 	color-scheme: light dark;
 }
 
 body {
-	--font-family: #{setting.$font-family};
-	--line-height: #{map.get(setting.$lineHeight,m)};
 	--color: #{map.get(setting.$pickupColor, text-primary)};
 	--background-color: #{map.get(setting.$pickupColor, bg-primary)};
 
 	min-height: 100svh;
-	font-family: var(--font-family);
+	font-family: setting.$font-family;
 	font-feature-settings: "pkna";
 	font-optical-sizing: auto;
-	line-height: var(--line-height);
+	line-height: map.get(setting.$lineHeight,m);
 	color: var(--color);
 	background-color: var(--background-color);
 	-webkit-font-smoothing: antialiased;
@@ -78,4 +80,16 @@ details > summary {
 
 details summary::-webkit-details-marker {
   display: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

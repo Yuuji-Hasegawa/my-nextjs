@@ -1,12 +1,13 @@
 .o-box {
 	--border-color: transparent;
 	--background-color: transparent;
-	--color: currentcolor;
+	--color: currentColor;
 	--border-width: 1px;
+	--outline-color: transparent;
 
 	color: var(--color);
 	background-color: var(--background-color);
 	border: var(--border-width) solid var(--border-color);
-	outline: var(--border-width) transparent;
+	outline: var(--border-width) var(--outline-color);
 	outline-offset: calc(var(--border-width) + -1);
 }

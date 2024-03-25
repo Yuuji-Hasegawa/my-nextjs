@@ -1,0 +1,85 @@
+@use "sass:map";
+@use "../settings" as setting;
+
+.c-btn {
+	--width: auto;
+	--height: auto;
+	--border-radius: 0;
+
+	width: var(--width);
+	height: var(--height);
+	border-radius: var(--border-radius);
+}
+.c-menu-btn,
+.c-warp-link,
+.c-nav-icon {
+	--width: 40px;
+	--height: 40px;
+}
+.c-menu-btn {
+	&:hover,
+  &:active {
+    --color: var(--c-accent);
+    --background-color: color-mix(in oklab, transparent, currentColor 15%);
+    --border-color: var(--c-accent);
+  }
+
+  &:focus {
+    --outline-color: var(--c-accent);
+  }
+	&[aria-label="menu open"] {
+		.c-menu-bars::before {
+			top: -7px;
+		}
+		.c-menu-bars::after {
+			top: 7px;
+		}
+	}
+	&[aria-label="menu close"] {
+		.c-menu-bars {
+			background-color: transparent;
+		}
+		.c-menu-bars::before,
+		.c-menu-bars::after {
+			top: 0;
+		}
+		.c-menu-bars::before {
+			transform: rotate(-45deg);
+		}
+		.c-menu-bars::after {
+			transform: rotate(45deg);
+		}
+	}
+}
+
+.c-menu-bars,
+.c-menu-bars::before,
+.c-menu-bars::after {
+	background-color: currentColor;
+	height: setting.f-get-space(3xs, px);
+	border-radius: map.get(setting.$borderRadius, s);
+}
+.c-menu-bars {
+	width: calc(100% - setting.f-font-size(s));
+	&::before,
+	&::after {
+		content: '';
+		width: 100%;
+		left: 0;
+		position: absolute;
+	}
+}
+.c-warp-link {
+	--background-color: var(--c-accent);
+	&:hover,
+  &:active {
+		--background-color: color-mix(in oklab, transparent, var(--c-accent) 15%);
+    --border-color: var(--c-accent);
+		path {
+			fill: var(--c-accent);
+		}
+	}
+	&:focus {
+    --outline-color: var(--c-accent);
+  }
+}
