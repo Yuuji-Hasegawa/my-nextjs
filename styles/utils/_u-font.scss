@@ -1,54 +1,32 @@
 @use "sass:map";
 @use "../settings" as setting;
 
-.u-font-size-2xs {
-	font-size: setting.f-font-size(2xs);
+@each $key, $name in setting.$fontScale {
+	$is_target: if($key == 2xs or $key == xs or $key == s or $key == m or $key == l or $key == xl or $key == 2xl or $key == 3xl, true, false);
+	@if $is_target {
+		.u-fnt-#{$key} {
+			font-size: var(--fnt-#{$key});
+		}
+	}
 }
-.u-font-size-xs {
-	font-size: setting.f-font-size(xs);
+@each $key, $name in setting.$fontWeight {
+	$is_target: if($key == x or $key == l or $key == m or $key == b, true, false);
+	@if $is_target {
+		.u-fnt-w#{$key} {
+			font-weight: map.get(setting.$fontWeight, $key);
+		}
+	}
 }
-.u-font-size-s {
-	font-size: setting.f-font-size(s);
-}
-.u-font-size-m {
-	font-size: setting.f-font-size(m);
-}
-.u-font-size-l {
-	font-size: setting.f-font-size(l);
-}
-.u-font-size-xl {
-	font-size: setting.f-font-size(xl);
-}
-.u-font-size-2xl {
-	font-size: setting.f-font-size(2xl);
-}
-.u-font-size-3xl {
-	font-size: setting.f-font-size(3xl);
-}
-.u-font-weight-r {
-	font-weight: map.get(setting.$fontWeight, r);
-}
-.u-font-weight-m {
-	font-weight: map.get(setting.$fontWeight, m);
-}
-.u-font-weight-b {
-	font-weight: map.get(setting.$fontWeight, b);
-}
-.u-font-family-en {
-	font-family: setting.$font-family-en;
-}
-.u-line-height-none {
+
+.u-lnh-n {
 	line-height: map.get(setting.$lineHeight, none);
 }
-.u-line-height-s {
-	line-height: map.get(setting.$lineHeight, s);
+
+.u-fnt-en,
+.\:slnt {
+	font-family: setting.$font-family-en;
 }
-.u-line-height-l {
-	line-height: map.get(setting.$lineHeight, l);
-}
-.u-letter-spacing-s {
-	letter-spacing: map.get(setting.$letterSpacing, s);
-}
-.u-letter-spacing-m {
-	letter-spacing: map.get(setting.$letterSpacing, m)
+
+.\:slnt {
+	font-variation-settings: "slnt" -10, "opsz" 144;
 }

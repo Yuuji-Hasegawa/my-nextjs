@@ -1,18 +1,16 @@
-import IconFacebook from '@/app/components/icons/icon-facebook';
-import IconTwitter from '@/app/components/icons/icon-twitter';
-import IconInstagram from '@/app/components/icons/icon-instagram';
-import IconLinkedin from '@/app/components/icons/icon-linkedin';
 import IconDocument from '@/app/components/icons/icon-document';
+import IconFacebook from '@/app/components/icons/icon-facebook';
+import IconInstagram from '@/app/components/icons/icon-instagram';
 import IconLink from '@/app/components/icons/icon-link';
+import IconLinkedin from '@/app/components/icons/icon-linkedin';
+import IconTwitter from '@/app/components/icons/icon-twitter';
 
 export const FacebookLink = ({ className, url = 'https://www.facebook.com/' }) => {
-	const baseClassName = 'u-transition';
-	const setClassName = className ? `${baseClassName} ${className}` : baseClassName;
 	const setUrl = url && encodeURI(url);
 
 	return (
 		<a
-			className={setClassName}
+			className={className}
 			href={setUrl}
 			target='_blank'
 			rel='noopener noreferrer'
@@ -26,13 +24,11 @@ export const FacebookLink = ({ className, url = 'https://www.facebook.com/' }) =
 };
 
 export const TwitterLink = ({ className, url = 'https://twitter.com/' }) => {
-	const baseClassName = 'u-transition';
-	const setClassName = className ? `${baseClassName} ${className}` : baseClassName;
 	const setUrl = url && encodeURI(url);
 
 	return (
 		<a
-			className={setClassName}
+			className={className}
 			href={setUrl}
 			target='_blank'
 			rel='noopener noreferrer'
@@ -46,13 +42,11 @@ export const TwitterLink = ({ className, url = 'https://twitter.com/' }) => {
 };
 
 export const InstagramLink = ({ className, url = 'https://www.instagram.com/' }) => {
-	const baseClassName = 'u-transition';
-	const setClassName = className ? `${baseClassName} ${className}` : baseClassName;
 	const setUrl = url && encodeURI(url);
 
 	return (
 		<a
-			className={setClassName}
+			className={className}
 			href={setUrl}
 			target='_blank'
 			rel='noopener noreferrer'
@@ -66,13 +60,11 @@ export const InstagramLink = ({ className, url = 'https://www.instagram.com/' })
 };
 
 export const LinkedinLink = ({ className, url = 'https://www.linkedin.com/' }) => {
-	const baseClassName = 'u-transition';
-	const setClassName = className ? `${baseClassName} ${className}` : baseClassName;
 	const setUrl = url && encodeURI(url);
 
 	return (
 		<a
-			className={setClassName}
+			className={className}
 			href={setUrl}
 			target='_blank'
 			rel='noopener noreferrer'
@@ -86,13 +78,11 @@ export const LinkedinLink = ({ className, url = 'https://www.linkedin.com/' }) =
 };
 
 export const NoteLink = ({ className, url = 'https://note.com/' }) => {
-	const baseClassName = 'u-transition';
-	const setClassName = className ? `${baseClassName} ${className}` : baseClassName;
 	const setUrl = url && encodeURI(url);
 
 	return (
 		<a
-			className={setClassName}
+			className={className}
 			href={setUrl}
 			target='_blank'
 			rel='noopener noreferrer'
@@ -106,13 +96,11 @@ export const NoteLink = ({ className, url = 'https://note.com/' }) => {
 };
 
 export const WebsiteLink = ({ className, url = 'https://kamenwriter.com/' }) => {
-	const baseClassName = 'u-transition';
-	const setClassName = className ? `${baseClassName} ${className}` : baseClassName;
 	const setUrl = url && encodeURI(url);
 
 	return (
 		<a
-			className={setClassName}
+			className={className}
 			href={setUrl}
 			target='_blank'
 			rel='noopener noreferrer'

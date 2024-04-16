@@ -1,12 +1,75 @@
 @use "sass:map";
 @use "../settings" as setting;
+@use "../tools/" as tool;
 
+.c-heading,
+.c-sec-heading,
+.c-ter-heading,
+.c-qua-heading,
+.c-qui-heading,
+.c-sen-heading,
+.c-display-2xl,
+.c-display-xl,
+.c-display-l,
+.c-display-m,
+.c-display-s,
+.c-display-xs,
+.c-display-2xs,
 .c-content-l,
 .c-content-m,
 .c-label-l,
 .c-label-m,
-.c-entry p {
+.c-entry p,
+.c-hero > :first-of-type,
+.c-hero > :last-of-type {
   letter-spacing: map.get(setting.$letterSpacing, m);
+}
+
+.c-display-2xl,
+.c-display-xl,
+.c-heading,
+.c-display-l {
+	@include tool.min-screen(setting.$breaks) {
+		line-height: map.get(setting.$lineHeight, s);
+	}
+}
+
+.c-display-2xl {
+  font-size: clamp(setting.f-font-size(5xl), (map.get(setting.$breakpoints,overs)), setting.f-font-size(6xl));
+}
+
+.c-display-xl {
+  font-size: clamp(setting.f-font-size(4xl), (map.get(setting.$breakpoints,overs)), setting.f-font-size(5xl));
+}
+
+.c-heading,
+.c-display-l {
+  font-size: clamp(var(--fnt-3xl), (map.get(setting.$breakpoints,overs)), setting.f-font-size(4xl));
+}
+
+.c-sec-heading,
+.c-entry h2,
+.c-display-m {
+  font-size: clamp(var(--fnt-2xl), (map.get(setting.$breakpoints,overs)), var(--fnt-3xl));
+}
+
+.c-ter-heading,
+.c-entry h3,
+.c-display-s {
+  font-size: clamp(var(--fnt-xl), (map.get(setting.$breakpoints,overs)), var(--fnt-2xl));
+}
+
+.c-qua-heading,
+.c-display-xs {
+  font-size: clamp(var(--fnt-l), (map.get(setting.$breakpoints,overs)), var(--fnt-xl));
+}
+
+.c-qui-heading,
+.c-display-2xs {
+  font-size: clamp(var(--fnt-m), (map.get(setting.$breakpoints,overs)), var(--fnt-l));
+	@include tool.max-screen(setting.$breaks - 1px) {
+    line-height: map.get(setting.$lineHeight, l);
+  }
 }
 
 .c-content-l,
@@ -14,27 +77,17 @@
 .c-suppl-l,
 .c-suppl-m,
 .c-entry p {
-  font-weight: map.get(setting.$fontWeight, r);
   line-height: map.get(setting.$lineHeight, l);
-}
-
-.c-content-l,
-.c-entry p {
-  font-size: setting.f-font-size(m);
 }
 
 .c-content-m,
 .c-label-l {
-  font-size: setting.f-font-size(s);
+  font-size: var(--fnt-s);
 }
 
-.c-label-l,
-.c-label-m {
-  font-weight: map.get(setting.$fontWeight, m);
-}
-
-.c-label-m {
-  font-size: setting.f-font-size(xs);
+.c-label-m,
+.c-suppl-l {
+  font-size:var(--fnt-xs);
 }
 
 .c-suppl-l,
@@ -42,41 +95,69 @@
   letter-spacing: map.get(setting.$letterSpacing, s);
 }
 
-.c-suppl-l {
-  font-size: setting.f-font-size(xs);
-}
-
 .c-suppl-m {
-  font-size: setting.f-font-size(2xs);
+  font-size: var(--fnt-2xs);
 }
 
-.c-text-link {
-	&:visited {
-		color: map.get(setting.$pickupColor, colored-secondary);
-	}
+.c-heading,
+.c-sec-heading,
+.c-entry h2 {
+	margin-top: setting.f-get-space(2xl, rem);
+}
+
+.c-ter-heading,
+.c-entry h3,
+.c-qua-heading,
+.c-qui-heading {
+  margin-top: setting.f-get-space(xl, rem);
+}
+
+.c-sen-heading {
+  margin-top: setting.f-get-space(l, rem);
+}
+
+.c-heading + *,
+.c-sec-heading + *,
+.c-entry h2 + *,
+.c-ter-heading + *,
+.c-entry h3 + * {
+  margin-top: setting.f-get-space(l, rem);
+}
+
+.c-qua-heading + *,
+.c-qui-heading + *,
+.c-sen-heading + * {
+  margin-top: setting.f-get-space(m, rem);
+}
+
+.\:lnk-p {
+	position: relative;
+	cursor: pointer;
+	transition: all .3s ease-in-out;
+
 	&:hover,
 	&:focus,
 	&:active {
-		color: var(--c-accent);
+		color: color-mix(in oklab, currentcolor, transparent 15%);
 	}
 }
-.c-follow-heading,
-.c-copy-right,
-.c-side-copy-right {
-	font-variation-settings: "slnt" -10, "opsz" 144;
-}
-.c-copy-right {
-	&:hover,
-	&:focus,
-	&:active {
-		color: var(--c-accent);
+
+.c-hero {
+	& > :not(:first-of-type,:last-of-type) {
+		margin-top: clamp(setting.f-get-space(xs), map.get(setting.$breakpoints,overm), setting.f-get-space(s));
+		margin-bottom: clamp(setting.f-get-space(s), map.get(setting.$breakpoints,overm), setting.f-get-space(l));
+		font-size: clamp(setting.f-font-size(m) + setting.f-font-size(3xl), map.get(setting.$breakpoints,overm), setting.f-font-size(6xl) - setting.f-font-size(6xs));
+	}
+
+	& > :first-of-type {
+		font-size: clamp(setting.f-font-size(m), map.get(setting.$breakpoints,overm), setting.f-font-size(3xl));
+	}
+
+	& > :last-of-type {
+		font-size: clamp(setting.f-font-size(l), map.get(setting.$breakpoints,overm), setting.f-font-size(m) + setting.f-font-size(2xl));
 	}
 }
-.c-nav-link {
-	&:hover,
-	&:focus,
-	&:active {
-		color: var(--c-accent);
-		background-color: color-mix(in oklab, transparent, currentColor 15%);
-	}
+
+.c-hero-mark {
+	font-size: clamp((100svh - (112px + 56px + setting.f-get-space(2xl))), map.get(setting.$breakpoints,overm), 100svh - 56px);
 }

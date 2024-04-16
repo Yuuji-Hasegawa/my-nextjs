@@ -2,31 +2,16 @@
 
 import Image from 'next/image';
 import styles from './page.module.css';
-import Header from '@/app/components/includes/header';
 import Footer from '@/app/components/includes/footer';
-import LogoMark from '@/app/components/hero/logo-mark';
-import LogoLetter from '@/app/components/hero/logo-letter';
+import Header from '@/app/components/includes/header';
+import Hero from '@/app/components/includes/hero';
 
 export default function Home() {
 	return (
 		<>
 			<Header />
 			<main>
-				<div className='o-sidebar c-hero'>
-					<div className='o-cover c-hero__text'>
-						<h1 className='o-stack o-cover__middle u-align-items-center u-font-weight-b u-letter-spacing-m'>
-							<span className='c-hero-top'>ポートフォリオサイト</span>
-							<span className='c-hero-middle u-line-height-none'>
-								<LogoLetter />
-								<span className='sr-only'>シン・仮面ライター</span>
-							</span>
-							<span className='c-hero-bottom'>不定期更新中</span>
-						</h1>
-					</div>
-					<div className='c-hero__pict'>
-						<LogoMark className='c-hero-mark' />
-					</div>
-				</div>
+				<Hero />
 				<div className={styles.description}>
 					<div>
 						<a

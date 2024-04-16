@@ -2,13 +2,10 @@
 @use "sass:map";
 
 .o-frame {
-	--aspect-ratio: #{map.get(setting.$aspect, wide)};
-	--border-radius: 0;
-
 	position: relative;
 	display: block;
 	width: 100%;
-	aspect-ratio: var(--aspect-ratio);
+	aspect-ratio: map.get(setting.$aspect, wide);
 	overflow: hidden;
 
 	> * {
@@ -17,7 +14,7 @@
     display: flex;
     place-items: center;
     overflow: hidden;
-		border-radius: var(--border-radius);
+		border-radius: var(--frame-round, 0);
   }
 
 	> source,

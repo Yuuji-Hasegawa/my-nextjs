@@ -18,6 +18,7 @@ $spaceScale: (
   2xl: 8,
   3xl: 13,
   4xl: 21,
+	auto: auto,
 ) !default;
 
 @function f-get-space($scale, $unit: px) {

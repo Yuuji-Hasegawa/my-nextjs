@@ -1,20 +1,20 @@
 import { KwLink, BbnLink, NxzLink } from '@/app/components/links/bnr-links';
 
 export default function BnrList({ className }) {
-	const baseClassName = 'o-stack';
-	const setClassName = className ? `${baseClassName} ${className}` : baseClassName;
-
 	return (
-		<ul className={setClassName}>
-			<li>
-				<KwLink className='c-text-link u-font-size-3xl u-display-flex u-align-items-center u-line-height-l u-pt-s u-pb-s' />
-			</li>
-			<li>
-				<BbnLink className='c-text-link u-font-size-3xl u-display-flex u-align-items-center u-line-height-l u-pt-s u-pb-s' />
-			</li>
-			<li>
-				<NxzLink className='c-text-link u-font-size-3xl u-display-flex u-align-items-center u-line-height-l u-pt-s u-pb-s' />
-			</li>
-		</ul>
+		<div className={className}>
+			<h2 className='c-display-2xs u-fnt-wx u-px-s u-mb-s'>関連サイト</h2>
+			<ul className='o-stack'>
+				<li>
+					<KwLink className='c-display-m :bg-ghost u-pd-s u-dsp-b u-lnh-n' />
+				</li>
+				<li>
+					<BbnLink className='c-display-m :bg-ghost u-pd-s u-dsp-b u-lnh-n' />
+				</li>
+				<li>
+					<NxzLink className='c-display-m :bg-ghost u-pd-s u-dsp-b u-lnh-n' />
+				</li>
+			</ul>
+		</div>
 	);
 }

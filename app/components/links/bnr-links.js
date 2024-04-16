@@ -1,15 +1,13 @@
-import IconKw from '@/app/components/icons/icon-kw';
 import IconBbns from '@/app/components/icons/icon-bbns';
+import IconKw from '@/app/components/icons/icon-kw';
 import IconNxz from '@/app/components/icons/icon-nxz';
 
 export const KwLink = ({ className, url = 'https://kamenwriter.com/' }) => {
-	const baseClassName = 'u-transition';
-	const setClassName = className ? `${baseClassName} ${className}` : baseClassName;
 	const setUrl = url && encodeURI(url);
 
 	return (
 		<a
-			className={setClassName}
+			className={className}
 			href={setUrl}
 			target='_blank'
 			rel='noopener noreferrer'
@@ -23,13 +21,11 @@ export const KwLink = ({ className, url = 'https://kamenwriter.com/' }) => {
 };
 
 export const BbnLink = ({ className, url = 'https://bbns.jp/' }) => {
-	const baseClassName = 'u-transition';
-	const setClassName = className ? `${baseClassName} ${className}` : baseClassName;
 	const setUrl = url && encodeURI(url);
 
 	return (
 		<a
-			className={setClassName}
+			className={className}
 			href={setUrl}
 			target='_blank'
 			rel='noopener noreferrer'
@@ -43,13 +39,11 @@ export const BbnLink = ({ className, url = 'https://bbns.jp/' }) => {
 };
 
 export const NxzLink = ({ className, url = 'https://nxz.kamenwriter.com/' }) => {
-	const baseClassName = 'u-transition';
-	const setClassName = className ? `${baseClassName} ${className}` : baseClassName;
 	const setUrl = url && encodeURI(url);
 
 	return (
 		<a
-			className={setClassName}
+			className={className}
 			href={setUrl}
 			target='_blank'
 			rel='noopener noreferrer'

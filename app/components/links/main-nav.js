@@ -1,51 +1,51 @@
 import Link from 'next/link';
-import IconHome from '../icons/icon-home';
-import IconInfo from '../icons/icon-info';
-import IconBars from '../icons/icon-bars';
-import IconUser from '../icons/icon-user';
-import IconEnvelope from '../icons/icon-envelope';
+import IconBars from '@/app/components/icons/icon-bars';
+import IconEnvelope from '@/app/components/icons/icon-envelope';
+import IconHome from '@/app/components/icons/icon-home';
+import IconInfo from '@/app/components/icons/icon-info';
+import IconUser from '@/app/components/icons/icon-user';
 
 const MainNav = ({ className }) => (
 	<nav className={className}>
 		<ul className='o-stack'>
 			<li>
-				<Link className='c-nav-link u-display-flex u-align-items-center u-transition' href='/'>
-					<span className='o-box c-btn c-nav-icon u-display-inline-flex u-align-items-center u-justify-content-center u-font-size-2xl u-mr-m'>
+				<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/'>
+					<span className='o-box c-sq-btn :brd-none u-fnt-2xl u-mr-m'>
 						<IconHome className='o-icon' />
 					</span>
-					<span className='u-font-size-m u-letter-spacing-m u-flex-shrink-none'>ホーム</span>
+					<span className='c-content-l u-fx-shn'>ホーム</span>
 				</Link>
 			</li>
 			<li>
-				<Link className='c-nav-link u-display-flex u-align-items-center u-transition' href='/'>
-					<span className='o-box c-btn  c-nav-icon u-display-inline-flex u-align-items-center u-justify-content-center u-font-size-2xl u-mr-m'>
+				<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/'>
+					<span className='o-box c-sq-btn :brd-none u-fnt-2xl u-mr-m'>
 						<IconInfo className='o-icon' />
 					</span>
-					<span className='u-font-size-m u-letter-spacing-m u-flex-shrink-none'>このサイトについて</span>
+					<span className='c-content-l u-fx-shn'>このサイトについて</span>
 				</Link>
 			</li>
 			<li>
-				<Link className='c-nav-link u-display-flex u-align-items-center u-transition' href='/'>
-					<span className='o-box c-btn  c-nav-icon u-display-inline-flex u-align-items-center u-justify-content-center u-font-size-2xl u-mr-m'>
+				<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/'>
+					<span className='o-box c-sq-btn :brd-none u-fnt-2xl u-mr-m'>
 						<IconBars className='o-icon' />
 					</span>
-					<span className='u-font-size-m u-letter-spacing-m u-flex-shrink-none'>リスト</span>
+					<span className='c-content-l u-fx-shn'>リスト</span>
 				</Link>
 			</li>
 			<li>
-				<Link className='c-nav-link u-display-flex u-align-items-center u-transition' href='/'>
-					<span className='o-box c-btn  c-nav-icon u-display-inline-flex u-align-items-center u-justify-content-center u-font-size-2xl u-mr-m'>
+				<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/'>
+					<span className='o-box c-sq-btn :brd-none u-fnt-2xl u-mr-m'>
 						<IconUser className='o-icon' />
 					</span>
-					<span className='u-font-size-m u-letter-spacing-m u-flex-shrink-none'>プロフィール</span>
+					<span className='c-content-l u-fx-shn'>プロフィール</span>
 				</Link>
 			</li>
 			<li>
-				<Link className='c-nav-link u-display-flex u-align-items-center u-transition' href='/'>
-					<span className='o-box c-btn  c-nav-icon u-display-inline-flex u-align-items-center u-justify-content-center u-font-size-2xl u-mr-m'>
+				<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/'>
+					<span className='o-box c-sq-btn :brd-none u-fnt-2xl u-mr-m'>
 						<IconEnvelope className='o-icon' />
 					</span>
-					<span className='u-font-size-m u-letter-spacing-m u-flex-shrink-none'>お問い合わせ</span>
+					<span className='c-content-l u-fx-shn'>お問い合わせ</span>
 				</Link>
 			</li>
 		</ul>

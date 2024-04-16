@@ -1,8 +1,7 @@
 import IconTransPort from '@/app/components/icons/icon-transport';
 
 export default function WarpLink({ className }) {
-	const baseClassName =
-		'o-box c-btn c-warp-link u-font-size-3xl u-display-flex u-align-items-center u-justify-content-center u-border-radius-s u-transition';
+	const baseClassName = 'o-box c-sq-btn :bg-ghost :brd-none u-fnt-3xl';
 	const setClassName = className ? `${baseClassName} ${className}` : baseClassName;
 
 	return (

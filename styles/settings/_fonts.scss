@@ -32,6 +32,9 @@ $fontScale: (
 }
 
 $fontWeight: (
+	t: 100,
+	x: 200,
+	l: 300,
   r: 400,
   m: 500,
   b: 700,
@@ -78,7 +81,7 @@ $font-family-en: "Roboto Flex", sans-serif;
 
 @font-face {
 	font-family: "Roboto Flex";
-	font-weight: 400 900;
+	font-weight: 100 900;
 	font-display: optional;
 	src: url("/fonts/RobotoFlex-VariableFont.woff2") format("woff2-variations");
 	unicode-range: U+0000-00FF, U+02BB-02BC, U+2000-206F, U+20AC, U+2212, U+2215, U+FEFF;
@@ -112,6 +115,36 @@ $font-family-en: "Roboto Flex", sans-serif;
   font-family: "Original Yu Gothic";
   font-weight: bold;
   src: local("Yu Gothic Bold");
+}
+
+@font-face {
+  font-family: "YakuHanJP_Narrow";
+  font-style: normal;
+  font-weight: 100;
+  src: url("/fonts/YakuHanJP-Thin.woff2") format("woff2");
+  font-display: optional;
+  unicode-range: U+3001, U+3002, U+3008, U+3009, U+300a, U+300b, U+300c, U+300d, U+300e, U+300f, U+3010, U+3011, U+3014,
+    U+3015, U+30fb, U+ff01, U+ff08, U+ff09, U+ff1a, U+ff1b, U+ff1f, U+ff3b, U+ff3d, U+ff5b, U+ff5d;
+}
+
+@font-face {
+  font-family: "YakuHanJP_Narrow";
+  font-style: normal;
+  font-weight: 200;
+  src: url("/fonts/YakuHanJP-DemiLight.woff2") format("woff2");
+  font-display: optional;
+  unicode-range: U+3001, U+3002, U+3008, U+3009, U+300a, U+300b, U+300c, U+300d, U+300e, U+300f, U+3010, U+3011, U+3014,
+    U+3015, U+30fb, U+ff01, U+ff08, U+ff09, U+ff1a, U+ff1b, U+ff1f, U+ff3b, U+ff3d, U+ff5b, U+ff5d;
+}
+
+@font-face {
+  font-family: "YakuHanJP_Narrow";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/YakuHanJP-Light.woff2") format("woff2");
+  font-display: optional;
+  unicode-range: U+3001, U+3002, U+3008, U+3009, U+300a, U+300b, U+300c, U+300d, U+300e, U+300f, U+3010, U+3011, U+3014,
+    U+3015, U+30fb, U+ff01, U+ff08, U+ff09, U+ff1a, U+ff1b, U+ff1f, U+ff3b, U+ff3d, U+ff5b, U+ff5d;
 }
 
 @font-face {

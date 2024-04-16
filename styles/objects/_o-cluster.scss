@@ -1,9 +1,7 @@
 @use "../settings" as setting;
 
 .o-cluster {
-	--space: #{setting.f-get-space(m)};
-
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--space);
+	gap: var(--cluster-gutter, setting.f-get-space(m));
 }

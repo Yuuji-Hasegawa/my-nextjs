@@ -1,26 +1,24 @@
 @use "../settings" as setting;
 
 .o-cover {
-	--space: #{setting.f-get-space(m)};
-
 	display: flex;
 	flex-direction: column;
 
+	/*
+
 	& > * {
-		margin-top: var(--space);
-		margin-bottom: var(--space);
+		margin-top: setting.f-get-space(m);
+		margin-bottom: setting.f-get-space(m);
 	}
 
-	& > :first-child:not(.o-cover__middle) {
+	& > :first-child:not(.u-my-auto) {
 		margin-top: 0;
 	}
 
-	& > :last-child:not(.o-cover__middle) {
+	& > :last-child:not(.u-my-auto) {
 		margin-bottom: 0;
 	}
 
-	&__middle {
-		margin-top: auto;
-		margin-bottom: auto;
-	}
+	*/
+
 }

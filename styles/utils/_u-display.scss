@@ -1,9 +1,13 @@
-.u-display-block {
-	display: block;
-}
-.u-display-inline-block {
-	display: inline-block;
-}
-.u-display-table {
-	display: table;
+$displays: (
+  b: block,
+  ib: inline-block,
+  fx: flex,
+	ifx: inline-flex,
+	tbl: table,
+) !default;
+
+@each $prefix, $display in $displays {
+  .u-dsp-#{$prefix} {
+    display: $display;
+  }
 }

@@ -1,13 +1,9 @@
 @use "../settings" as setting;
 
 .o-center {
-	--space: #{setting.f-get-space(m)};
-	--max-width: none;
-
 	box-sizing: content-box;
-	max-width: var(--max-width);
-	padding-right: var(--space);
-	padding-left: var(--space);
+	padding-right: setting.f-get-space(m);
+	padding-left: setting.f-get-space(m);
 	margin-right: auto;
 	margin-left: auto;
 }

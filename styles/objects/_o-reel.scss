@@ -1,10 +1,9 @@
 @use "../settings" as setting;
 
 .o-reel {
-	--space: #{setting.f-get-space(m)};
-
 	display: flex;
-	gap: var(--space);
+	gap: var(--reel-gutter, setting.f-get-space(m));
+	padding-bottom: setting.f-get-space(s);
 	overflow: auto hidden;
 
 	& > * {

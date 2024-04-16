@@ -15,30 +15,49 @@
 }
 
 :root {
-	--c-accent: #{setting.$myAccent};
-	--c-accent-tint: #{map.get(setting.$lightAccents, myTint)};
-	--c-accent-shade: #{map.get(setting.$lightAccents, myShade)};
-
-	@include tool.darkmode {
-		--c-accent: #{setting.$mydarkAccent};
-		--c-accent-tint: #{map.get(setting.$darkAccents, myTint)};
-		--c-accent-shade: #{map.get(setting.$darkAccents, myShade)};
+	@each $key, $name in setting.$spaceScale {
+		$is_target: if($key == 2xs or $key == xs or $key == s or $key == m or $key == l or $key == xl or $key == 2xl, true, false);
+		@if $is_target {
+			--space-#{$key}: #{setting.f-get-space($key)};
+		} @else if $key == auto {
+			--space-#{$key}: #{$key};
+		}
 	}
 
-	color-scheme: light dark;
+	--space-clamp: clamp(
+    clamp(#{setting.f-get-space(m)}, #{map.get(setting.$breakpoints,overm)}, #{setting.f-get-space(xl)}),
+    #{map.get(setting.$breakpoints,overs)},
+    clamp(#{setting.f-get-space(xl)}, #{map.get(setting.$breakpoints,overm)}, #{setting.f-get-space(3xl)})
+  );
+
+	@each $key, $name in setting.$fontScale {
+		$is_target: if($key == 2xs or $key == xs or $key == s or $key == m or $key == l or $key == xl or $key == 2xl or $key == 3xl, true, false);
+		@if $is_target {
+			--fnt-#{$key}: #{setting.f-font-size($key)};
+		}
+	}
+
+	--accent-tint: #{map.get(setting.$lightAccents, myTint)};
+	--accent-middle: #{map.get(setting.$lightAccents, myMiddle)};
+	--accent-shade: #{map.get(setting.$lightAccents, myShade)};
+
+	@include tool.darkmode {
+		--accent-tint: #{map.get(setting.$darkAccents, myTint)};
+		--accent-middle: #{map.get(setting.$darkAccents, myMiddle)};
+		--accent-shade: #{map.get(setting.$darkAccents, myShade)};
+	}
 }
 
 body {
-	--color: #{map.get(setting.$pickupColor, text-primary)};
-	--background-color: #{map.get(setting.$pickupColor, bg-primary)};
-
 	min-height: 100svh;
 	font-family: setting.$font-family;
+	font-size: var(--font-m);
+	font-weight: map.get(setting.$fontWeight, r);
 	font-feature-settings: "pkna";
 	font-optical-sizing: auto;
 	line-height: map.get(setting.$lineHeight,m);
-	color: var(--color);
-	background-color: var(--background-color);
+	color: map.get(setting.$pickupColor, text-primary);
+	background-color: map.get(setting.$pickupColor, bg-primary);
 	-webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 	text-size-adjust: 100%;
@@ -59,6 +78,23 @@ small {
 a,
 button {
   cursor: pointer;
+	transition: var(--custom-transition, all) var(--custom-duration, .3s) var(--custom-timing, ease-in-out) var(--custom-delay, 0s);
+
+	& * {
+		transition: inherit;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: var(--lnk-color);
+		background: var(--lnk-bg)
+	}
+
+	&:focus,
+	&:active {
+		outline-color: var(--lnk-color);
+	}
 }
 
 img {

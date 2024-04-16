@@ -1,16 +1,23 @@
-.u-display-inline-flex {
-	display: inline-flex;
+@use "../tools" as tool;
+
+.u-fx-shn {
+	flex-shrink: 0;
 }
-.u-display-flex {
-	display: flex;
-}
-.u-align-items-center {
-	align-items: center;
-}
-.u-justify-content-center {
+
+.u-fx-ctr {
 	justify-content: center;
 }
 
-.u-flex-shrink-none {
-	flex-shrink: 0;
+.u-fx-y-ctr {
+	align-items: center;
+}
+
+.\:ch-glow {
+	flex-grow: 1;
+}
+
+.\:hr-ord-rev {
+	@include tool.max-screen(671px) {
+		order: 2;
+	}
 }

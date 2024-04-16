@@ -1,35 +1,19 @@
 import Link from 'next/link';
 
 export default function SubNav({ className }) {
-	const baseClassName = 'o-stack';
-	const setClassName = className ? `${baseClassName} ${className}` : baseClassName;
+	className = className ? `o-cluster u-pt-m ${className}` : 'o-cluster u-pt-m';
 
 	return (
-		<ul className={setClassName}>
-			<li>
-				<Link
-					href='/'
-					className='c-text-link c-nav-link u-display-block u-pt-s u-pb-s u-pr-s u-pl-s u-font-size-s u-font-weight-m u-letter-spacing-m u-line-height-l u-transition'
-				>
-					運営者情報
-				</Link>
-			</li>
-			<li>
-				<Link
-					href='/'
-					className='c-text-link c-nav-link u-display-block u-pt-s u-pb-s u-pr-s u-pl-s u-font-size-s u-font-weight-m u-letter-spacing-m u-line-height-l u-transition'
-				>
-					サイト規約
-				</Link>
-			</li>
-			<li>
-				<Link
-					href='/'
-					className='c-text-link c-nav-link u-display-block u-pt-s u-pb-s u-pr-s u-pl-s u-font-size-s u-font-weight-m u-letter-spacing-m u-line-height-l u-transition'
-				>
-					プライバシーポリシー
-				</Link>
-			</li>
-		</ul>
+		<div className={className}>
+			<Link href='/' className='c-lnk-txt c-content-m u-dsp-b u-py-s u-fnt-wl'>
+				運営者情報
+			</Link>
+			<Link href='/' className='c-lnk-txt c-content-m u-dsp-b u-py-s u-fnt-wl'>
+				サイト規約
+			</Link>
+			<Link href='/' className='c-lnk-txt c-content-m u-dsp-b u-py-s u-fnt-wl'>
+				プライバシーポリシー
+			</Link>
+		</div>
 	);
 }

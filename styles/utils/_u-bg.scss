@@ -1,12 +1,33 @@
 @use "sass:map";
 @use "../settings" as setting;
 
-.u-bg-primary {
-	background: map.get(setting.$pickupColor, bg-primary);
+.\:bg-ghost {
 	color: map.get(setting.$pickupColor, text-primary);
+	background-color: transparent;
+
+	&:hover,
+	&:focus,
+	&:active {
+		--lnk-bg: color-mix(in oklab, #{map.get(setting.$pickupColor, bg-primary)}, #{map.get(setting.$pickupColor, text-primary)} 15%);
+		--lnk-color: color-mix(in oklab, #{map.get(setting.$pickupColor, text-primary)}, transparent 15%);
+	}
+}
+
+.\:bg-primary {
+	color: map.get(setting.$pickupColor, text-primary);
+	background-color: map.get(setting.$pickupColor, bg-primary);
+}
+
+.u-fill-lmp {
+	fill: var(--accent-middle);
+}
+
+.u-bg-primary {
+	color: map.get(setting.$pickupColor, text-primary);
+	background: map.get(setting.$pickupColor, bg-primary);
 }
 
 .u-bg-quaternary {
-	background: map.get(setting.$pickupColor, bg-quaternary);
 	color: map.get(setting.$pickupColor, text-primary);
+	background: map.get(setting.$pickupColor, bg-quaternary);
 }

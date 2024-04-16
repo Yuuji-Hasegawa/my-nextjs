@@ -1,0 +1,44 @@
+@use "sass:map";
+@use "../settings" as setting;
+
+.c-lnk-txt {
+	&:visited {
+		color: color-mix(in oklab, currentColor, #{map.get(setting.$pickupColor, bg-primary)});
+	}
+
+	&.\:logo {
+		&:visited {
+			color: inherit;
+		}
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		--lnk-color: color-mix(in oklab, currentcolor, transparent 15%);
+	}
+
+	&.\:has-line {
+		text-decoration: underline;
+
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration: none;
+		}
+	}
+
+	&.\:has-cover {
+		&::after {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 100%;
+			min-width: setting.f-get-space(xl);
+			height: 100%;
+			min-height: setting.f-get-space(xl);
+			content: '';
+			transform: translate(-50%, -50%);
+		}
+	}
+}
