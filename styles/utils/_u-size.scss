@@ -1,0 +1,17 @@
+@use "../settings" as setting;
+
+.\:rd-bx {
+	max-width: setting.$readableLength;
+}
+
+.u-mw-cnt {
+	max-width: max-content;
+}
+
+.u-w-max {
+	width: 100%;
+}
+
+.u-h-max {
+	height: 100%;
+}

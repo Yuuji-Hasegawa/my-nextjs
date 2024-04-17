@@ -16,6 +16,10 @@
 	&:focus,
 	&:active {
 		--lnk-color: color-mix(in oklab, currentcolor, transparent 15%);
+		& span.\:bg-ghost {
+			--lnk-bg: color-mix(in oklab, #{map.get(setting.$pickupColor, bg-primary)}, #{map.get(setting.$pickupColor, text-primary)} 15%);
+			--lnk-color: color-mix(in oklab, #{map.get(setting.$pickupColor, text-primary)}, transparent 15%);
+		}
 	}
 
 	&.\:has-line {
@@ -39,6 +43,24 @@
 			min-height: setting.f-get-space(xl);
 			content: '';
 			transform: translate(-50%, -50%);
+		}
+	}
+	& > span.\:bg-ghost {
+		background: var(--lnk-bg);
+  	color: var(--lnk-color);
+	}
+}
+.c-card-lnk {
+	min-height: 100%;
+	&:hover,
+	&:focus,
+	&:active {
+		outline-color: var(--lnk-color);
+		--lnk-bg: color-mix(in oklab, #{map.get(setting.$pickupColor, bg-primary)}, #{map.get(setting.$pickupColor, text-primary)} 15%);
+		--lnk-color: color-mix(in oklab, #{map.get(setting.$pickupColor, text-primary)}, transparent 15%);
+		.o-frame > * {
+			filter: blur(calc(setting.f-get-space(s) * 0.15)) grayscale(100%);
+			transform: scale(1.15);
 		}
 	}
 }

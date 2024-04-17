@@ -5,7 +5,7 @@ import LogoLink from '@/app/components/links/logo-link';
 
 export default function Footer() {
 	return (
-		<footer className='o-center c-footer u-py-2xl u-px-clamp'>
+		<footer className='o-center c-footer u-pt-l u-pb-2xl u-px-clamp'>
 			<FooterLink />
 			<div className='o-cluster u-fx-y-ctr'>
 				<LogoLink className='u-py-s' />

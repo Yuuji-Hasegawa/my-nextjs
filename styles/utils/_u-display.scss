@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "../settings" as setting;
+
 $displays: (
   b: block,
   ib: inline-block,
@@ -10,4 +13,12 @@ $displays: (
   .u-dsp-#{$prefix} {
     display: $display;
   }
+}
+
+.\:sq {
+	aspect-ratio: #{map.get(setting.$aspect, square)};
+}
+
+.\:round {
+	--frame-round: 50%;
 }

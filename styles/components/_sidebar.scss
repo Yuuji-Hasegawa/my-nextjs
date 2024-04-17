@@ -62,3 +62,9 @@
 
 	border-bottom: solid 1px map.get(setting.$pickupColor, text-secondary);
 }
+
+.\:brd-h {
+	--box-border-w: 0;
+	border-width: 1px 0;
+	border-color: map.get(setting.$pickupColor, text-secondary);
+}

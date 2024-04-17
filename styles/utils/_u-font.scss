@@ -10,7 +10,7 @@
 	}
 }
 @each $key, $name in setting.$fontWeight {
-	$is_target: if($key == x or $key == l or $key == m or $key == b, true, false);
+	$is_target: if($key == t or $key == x or $key == l or $key == m or $key == b, true, false);
 	@if $is_target {
 		.u-fnt-w#{$key} {
 			font-weight: map.get(setting.$fontWeight, $key);
@@ -29,4 +29,38 @@
 
 .\:slnt {
 	font-variation-settings: "slnt" -10, "opsz" 144;
+}
+
+.\:has-color {
+	color: #{map.get(setting.$brandColors, myMiddle)};
+}
+
+.\:txt-sec {
+	color: map.get(setting.$pickupColor, text-secondary);
+}
+
+.\:txt-ter {
+	color: map.get(setting.$pickupColor, text-tertiary);
+}
+
+.\:txt-qua {
+	color: map.get(setting.$pickupColor, text-quaternary);
+}
+
+.u-txt-ctr {
+	text-align: center;
+}
+
+.u-txt-r {
+	text-align: right;
+}
+
+.\:txt-trim {
+	display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--trim-line, 1);
+}
+.\:two-line {
+	--trim-line: 2;
 }

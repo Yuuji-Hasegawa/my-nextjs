@@ -1,0 +1,16 @@
+@use "sass:map";
+@use "../settings" as setting;
+
+.c-bio-pict {
+	flex-basis: 80px;
+	& + .\:ch-glow {
+		flex-basis: map.get(setting.$breakpoints, unders);
+		& > * {
+			width: min(map.get(setting.$breakpoints, overs),100%);
+			min-width: max-content;
+		}
+		& > p {
+			display: table;
+		}
+	}
+}
