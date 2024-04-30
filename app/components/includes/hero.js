@@ -1,5 +1,4 @@
-import LogoLetter from '@/app/components/hero/logo-letter';
-import LogoMark from '@/app/components/hero/logo-mark';
+import { LogoLetter, LogoMark } from '@/app/components/svgs/brands';
 
 const Hero = () => (
 	<div className='o-sidebar :hero-gutter'>
@@ -17,6 +16,6 @@ const Hero = () => (
 			<LogoMark className='c-hero-mark' />
 		</div>
 	</div>
-)
+);
 
-export default Hero
+export default Hero;

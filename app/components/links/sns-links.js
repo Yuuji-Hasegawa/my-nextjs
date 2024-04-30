@@ -1,17 +1,19 @@
-import IconDocument from '@/app/components/icons/icon-document';
-import IconFacebook from '@/app/components/icons/icon-facebook';
-import IconInstagram from '@/app/components/icons/icon-instagram';
-import IconLink from '@/app/components/icons/icon-link';
-import IconLinkedin from '@/app/components/icons/icon-linkedin';
-import IconTwitter from '@/app/components/icons/icon-twitter';
+import {
+	IconDocument,
+	IconFacebook,
+	IconInstagram,
+	IconLink,
+	IconLinkedin,
+	IconTwitter,
+} from '@/app/components/svgs/icons';
 
 export const FacebookLink = ({ className, url = 'https://www.facebook.com/' }) => {
-	const setUrl = url && encodeURI(url);
+	url = url && encodeURI(url);
 
 	return (
 		<a
 			className={className}
-			href={setUrl}
+			href={url}
 			target='_blank'
 			rel='noopener noreferrer'
 			title='Facebook'
@@ -24,12 +26,12 @@ export const FacebookLink = ({ className, url = 'https://www.facebook.com/' }) =
 };
 
 export const TwitterLink = ({ className, url = 'https://twitter.com/' }) => {
-	const setUrl = url && encodeURI(url);
+	url = url && encodeURI(url);
 
 	return (
 		<a
 			className={className}
-			href={setUrl}
+			href={url}
 			target='_blank'
 			rel='noopener noreferrer'
 			title='Twitter'
@@ -42,12 +44,12 @@ export const TwitterLink = ({ className, url = 'https://twitter.com/' }) => {
 };
 
 export const InstagramLink = ({ className, url = 'https://www.instagram.com/' }) => {
-	const setUrl = url && encodeURI(url);
+	url = url && encodeURI(url);
 
 	return (
 		<a
 			className={className}
-			href={setUrl}
+			href={url}
 			target='_blank'
 			rel='noopener noreferrer'
 			title='Instagram'
@@ -60,12 +62,12 @@ export const InstagramLink = ({ className, url = 'https://www.instagram.com/' })
 };
 
 export const LinkedinLink = ({ className, url = 'https://www.linkedin.com/' }) => {
-	const setUrl = url && encodeURI(url);
+	url = url && encodeURI(url);
 
 	return (
 		<a
 			className={className}
-			href={setUrl}
+			href={url}
 			target='_blank'
 			rel='noopener noreferrer'
 			title='Linkedin'
@@ -78,12 +80,12 @@ export const LinkedinLink = ({ className, url = 'https://www.linkedin.com/' }) =
 };
 
 export const NoteLink = ({ className, url = 'https://note.com/' }) => {
-	const setUrl = url && encodeURI(url);
+	url = url && encodeURI(url);
 
 	return (
 		<a
 			className={className}
-			href={setUrl}
+			href={url}
 			target='_blank'
 			rel='noopener noreferrer'
 			title='note.com'
@@ -96,12 +98,12 @@ export const NoteLink = ({ className, url = 'https://note.com/' }) => {
 };
 
 export const WebsiteLink = ({ className, url = 'https://kamenwriter.com/' }) => {
-	const setUrl = url && encodeURI(url);
+	url = url && encodeURI(url);
 
 	return (
 		<a
 			className={className}
-			href={setUrl}
+			href={url}
 			target='_blank'
 			rel='noopener noreferrer'
 			title='仮面ライター'

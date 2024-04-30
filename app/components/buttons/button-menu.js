@@ -1,5 +1,4 @@
-import IconCross from '@/app/components/icons/icon-cross';
-import IconLines from '@/app/components/icons/icon-lines';
+import { IconCross, IconLines } from '@/app/components/svgs/icons';
 
 export default function ButtonMenu({ status, toggle, open, className }) {
 	className = className

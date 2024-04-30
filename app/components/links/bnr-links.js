@@ -1,14 +1,25 @@
-import IconBbns from '@/app/components/icons/icon-bbns';
-import IconKw from '@/app/components/icons/icon-kw';
-import IconNxz from '@/app/components/icons/icon-nxz';
+import Link from 'next/link';
+import { IconBbns, IconKw, IconNxz, IconLogo } from '@/app/components/svgs/brands';
+
+export const LogoLink = ({ className }) => {
+	className = className
+		? `c-lnk-txt :logo c-display-m u-dsp-fx u-fx-y-ctr ${className}`
+		: 'c-lnk-txt :logo c-display-m u-dsp-fx u-fx-y-ctr';
+	return (
+		<Link className={className} href='/' title='シン・仮面ライター' aria-label='シン・仮面ライターのトップページへ'>
+			<IconLogo className='o-icon' />
+			<span className='sr-only'>シン・仮面ライターのトップページへ</span>
+		</Link>
+	);
+};
 
 export const KwLink = ({ className, url = 'https://kamenwriter.com/' }) => {
-	const setUrl = url && encodeURI(url);
+	url = url && encodeURI(url);
 
 	return (
 		<a
 			className={className}
-			href={setUrl}
+			href={url}
 			target='_blank'
 			rel='noopener noreferrer'
 			title='kamenwriter.com'
@@ -21,12 +32,12 @@ export const KwLink = ({ className, url = 'https://kamenwriter.com/' }) => {
 };
 
 export const BbnLink = ({ className, url = 'https://bbns.jp/' }) => {
-	const setUrl = url && encodeURI(url);
+	url = url && encodeURI(url);
 
 	return (
 		<a
 			className={className}
-			href={setUrl}
+			href={url}
 			target='_blank'
 			rel='noopener noreferrer'
 			title='BLUE B NOSE'
@@ -39,12 +50,12 @@ export const BbnLink = ({ className, url = 'https://bbns.jp/' }) => {
 };
 
 export const NxzLink = ({ className, url = 'https://nxz.kamenwriter.com/' }) => {
-	const setUrl = url && encodeURI(url);
+	url = url && encodeURI(url);
 
 	return (
 		<a
 			className={className}
-			href={setUrl}
+			href={url}
 			target='_blank'
 			rel='noopener noreferrer'
 			title='NXZ'
