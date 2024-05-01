@@ -23,7 +23,7 @@ export default function Sidebar({ toggle, open }) {
 							</Link>
 						</li>
 						<li>
-							<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/'>
+							<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/aboutus'>
 								<span className='o-box c-sq-btn :brd-none u-fnt-2xl u-mr-m'>
 									<IconInfo className='o-icon' />
 								</span>
@@ -31,7 +31,7 @@ export default function Sidebar({ toggle, open }) {
 							</Link>
 						</li>
 						<li>
-							<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/'>
+							<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/works'>
 								<span className='o-box c-sq-btn :brd-none u-fnt-2xl u-mr-m'>
 									<IconBars className='o-icon' />
 								</span>
@@ -39,7 +39,7 @@ export default function Sidebar({ toggle, open }) {
 							</Link>
 						</li>
 						<li>
-							<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/'>
+							<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/aboutus#profile'>
 								<span className='o-box c-sq-btn :brd-none u-fnt-2xl u-mr-m'>
 									<IconUser className='o-icon' />
 								</span>
@@ -47,7 +47,7 @@ export default function Sidebar({ toggle, open }) {
 							</Link>
 						</li>
 						<li>
-							<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/'>
+							<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/inquiry'>
 								<span className='o-box c-sq-btn :brd-none u-fnt-2xl u-mr-m'>
 									<IconEnvelope className='o-icon' />
 								</span>
@@ -71,13 +71,13 @@ export default function Sidebar({ toggle, open }) {
 					</ul>
 				</div>
 				<div className='o-cluster u-space-2xs u-insert-cluster u-pt-m u-mb-s'>
-					<Link href='/' className='c-lnk-txt c-content-m u-dsp-b u-py-s u-fnt-wl'>
+					<Link href='/aboutus#information' className='c-lnk-txt c-content-m u-dsp-b u-py-s u-fnt-wl'>
 						運営者情報
 					</Link>
-					<Link href='/' className='c-lnk-txt c-content-m u-dsp-b u-py-s u-fnt-wl'>
+					<Link href='/terms' className='c-lnk-txt c-content-m u-dsp-b u-py-s u-fnt-wl'>
 						サイト規約
 					</Link>
-					<Link href='/' className='c-lnk-txt c-content-m u-dsp-b u-py-s u-fnt-wl'>
+					<Link href='/privacy-policy' className='c-lnk-txt c-content-m u-dsp-b u-py-s u-fnt-wl'>
 						プライバシーポリシー
 					</Link>
 				</div>

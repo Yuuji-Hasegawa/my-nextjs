@@ -1,0 +1,42 @@
+{
+	"site": {
+		"host": "www.shin-kamenwriter.com",
+		"title": "シン・仮面ライター",
+		"description": "",
+		"keywords": [
+			"シン・仮面ライター",
+			"シン仮面ライター",
+			"シン・カメンライター",
+			"シンカメンライター"
+		],
+		"gtm": "GTM-P3T2XVD",
+		"themecolor": ""
+	},
+	"company": {
+		"name": "仮面ライター",
+		"owner": "長谷川 雄治",
+		"zip": "567-0005",
+		"address": "大阪府茨木市五日市2",
+		"birth": "2013年04月26日",
+		"url": "https://kamenwriter.com",
+		"service": [
+			"Webサイト制作",
+			"Web/SNS活用サポート",
+			"コンテンツ制作",
+			"Webコンサルティング",
+			"ドメイン、サーバ取得代行"
+		]
+	},
+	"mail": {
+    "primary": "info@kamenwriter.com",
+    "sendonly": "noreply@kamenwriter.com"
+  },
+	"terms": {
+		"company": "仮面ライター",
+		"domain": "www.shin-kamenwriter.com",
+		"name": "シン・仮面ライター",
+		"payterm": "12ヶ月間",
+		"court": "大阪地方裁判所",
+		"acount": "長谷川 雄治"
+	}
+}

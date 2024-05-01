@@ -1,0 +1,52 @@
+@use "sass:map";
+@use "../settings" as setting;
+
+.c-breadcrumb-item:not(:last-of-type)::after {
+  display: inline-block;
+  margin-left: setting.f-get-space(m);
+  content: "\203A";
+	font-weight: map.get(setting.$fontWeight,t);
+}
+
+.c-entry > ul,
+.c-dsc-list {
+  padding-left: setting.f-get-space(l, em);
+  list-style-position: outside;
+  list-style-type: disc;
+}
+
+.c-cnt-list,
+.c-entry > ol {
+	counter-set: primary;
+	& > li {
+    position: relative;
+    padding-left: calc(2 * setting.f-get-space(m, em));
+    counter-increment: primary;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-family: setting.$font-family-en;
+      content: counter(primary, decimal-leading-zero) ".";
+			font-weight: inherit;
+    }
+  }
+
+  ol {
+    padding-left: 0;
+  }
+}
+.\:secondary,
+.c-entry > ol > ol {
+  counter-set: secondary;
+
+  & > li {
+    padding-left: calc(setting.f-get-space(l,em) + setting.f-get-space(m,em));
+    counter-increment: secondary;
+
+    &::before {
+      content: "(" counter(secondary, decimal-leading-zero) ")";
+    }
+  }
+}

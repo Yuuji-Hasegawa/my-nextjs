@@ -1,0 +1,28 @@
+@use "sass:map";
+@use "../settings" as setting;
+
+.\:th-bx,
+.\:td-bx {
+	--box-border-w: 0;
+	border-color: map.get(setting.$pickupColor, text-secondary);
+}
+.\:th-bx {
+	flex-basis: 260px;
+  flex-grow: 1;
+  border-width: 1px clamp(0px, map.get(setting.$breakpoints, underm), 1px) 0 1px;
+
+  &:last-of-type {
+    border-bottom-width: clamp(0px, map.get(setting.$breakpoints, overm), 1px);
+  }
+}
+
+.\:td-bx {
+	flex-basis: 0;
+  flex-grow: 999;
+  min-width: clamp(calc(100% - 260px), map.get(setting.$breakpoints, underm), 100%);
+  border-width: 1px 1px 0;
+
+  &:last-of-type {
+    border-bottom-width: 1px;
+  }
+}

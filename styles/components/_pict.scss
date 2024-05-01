@@ -3,6 +3,9 @@
 
 .c-bio-pict {
 	flex-basis: 80px;
+	&.\:bio-l {
+		flex-basis: 200px;
+	}
 	& + .\:ch-glow {
 		flex-basis: map.get(setting.$breakpoints, unders);
 		& > * {

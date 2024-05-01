@@ -60,6 +60,10 @@ $targets: (
 	}
 }
 
+.u-space-none {
+	--custom-space: 0;
+}
+
 @each $prefix, $target in $targets {
   .u-insert-#{$prefix} {
 		--#{$target}: var(--custom-space);

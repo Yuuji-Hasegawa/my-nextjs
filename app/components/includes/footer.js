@@ -8,7 +8,7 @@ export default function Footer() {
 		<footer className='o-center c-footer u-pt-l u-pb-2xl u-px-clamp'>
 			<ul className='o-cluster u-fx-ctr u-space-s u-insert-cluster u-mb-s'>
 				<li>
-					<Link className='c-lnk-txt c-content-m u-dsp-b u-pd-s u-fnt-wl' href='/aboutus'>
+					<Link className='c-lnk-txt c-content-m u-dsp-b u-pd-s u-fnt-wl' href='/aboutus#information'>
 						運営者情報
 					</Link>
 				</li>

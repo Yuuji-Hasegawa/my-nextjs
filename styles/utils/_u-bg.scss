@@ -18,6 +18,11 @@
 	background-color: map.get(setting.$pickupColor, bg-primary);
 }
 
+.\:bg-secondary {
+	color: map.get(setting.$pickupColor, text-secondary);
+	background-color: map.get(setting.$pickupColor, bg-secondary);
+}
+
 .u-fill-lmp {
 	fill: var(--accent-middle);
 }

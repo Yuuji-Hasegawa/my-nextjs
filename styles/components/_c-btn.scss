@@ -1,13 +1,23 @@
 @use "sass:map";
 @use "../settings" as setting;
 
+.c-rect-btn,
+.c-sq-btn {
+	border-radius: map.get(setting.$borderRadius,s);
+	outline-style: solid;
+}
+
+.c-rect-btn {
+	display: inline-flex;
+	align-items: baseline;
+}
+
 .c-sq-btn {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	min-width: setting.f-get-space(xl);
 	aspect-ratio: #{map.get(setting.$aspect, square)};
-	border-radius: map.get(setting.$borderRadius,s);
 	outline-style: solid;
 }
 
