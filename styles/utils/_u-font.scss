@@ -47,6 +47,10 @@
 	color: map.get(setting.$pickupColor, text-quaternary);
 }
 
+.\:txt-alert {
+	color: var(--accent-middle);
+}
+
 .u-txt-ctr {
 	text-align: center;
 }

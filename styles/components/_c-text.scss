@@ -161,3 +161,14 @@
 .c-hero-mark {
 	font-size: clamp((100svh - (112px + 56px + setting.f-get-space(2xl))), map.get(setting.$breakpoints,overm), 100svh - 56px);
 }
+.c-note {
+	position: relative;
+	padding-left: setting.f-get-space(l, em);
+	&::before {
+		content: '※';
+		font-size: inherit;
+		font-weight: inherit;
+		left: 0;
+		position: absolute;
+	}
+}

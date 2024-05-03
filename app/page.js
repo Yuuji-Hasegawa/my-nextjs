@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Hero from '@/app/components/includes/hero';
 import {
 	FacebookLink,
+	GithubLink,
 	TwitterLink,
 	InstagramLink,
 	LinkedinLink,
@@ -94,6 +95,10 @@ export default function Home() {
 									<NoteLink
 										className='c-lnk-txt :has-color c-display-s u-dsp-fx u-pd-xs'
 										url='https://note.com/kamenwriter'
+									/>
+									<GithubLink
+										className='c-lnk-txt :has-color c-display-s u-dsp-fx u-pd-xs'
+										url='https://github.com/Yuuji-Hasegawa'
 									/>
 									<WebsiteLink
 										className='c-lnk-txt :has-color c-display-s u-dsp-fx u-pd-xs'

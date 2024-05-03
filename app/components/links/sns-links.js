@@ -1,6 +1,7 @@
 import {
 	IconDocument,
 	IconFacebook,
+	IconGitHub,
 	IconInstagram,
 	IconLink,
 	IconLinkedin,
@@ -21,6 +22,17 @@ export const FacebookLink = ({ className, url = 'https://www.facebook.com/' }) =
 		>
 			<IconFacebook className='o-icon' />
 			<span className='sr-only'>Facebookへ</span>
+		</a>
+	);
+};
+
+export const GithubLink = ({ className, url = 'https://github.com/Yuuji-Hasegawa' }) => {
+	url = url && encodeURI(url);
+
+	return (
+		<a className={className} href={url} target='_blank' rel='noopener noreferrer' title='GitHub' aria-label='Githubへ'>
+			<IconGitHub className='o-icon' />
+			<span className='sr-only'>GitHubへ</span>
 		</a>
 	);
 };

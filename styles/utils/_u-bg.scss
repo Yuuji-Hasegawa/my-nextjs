@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "../settings" as setting;
+@use "../tools" as tool;
 
 .\:bg-ghost {
 	color: map.get(setting.$pickupColor, text-primary);
@@ -21,6 +22,21 @@
 .\:bg-secondary {
 	color: map.get(setting.$pickupColor, text-secondary);
 	background-color: map.get(setting.$pickupColor, bg-secondary);
+
+	&:hover,
+	&:focus,
+	&:active {
+		--lnk-bg: color-mix(in oklab, #{map.get(setting.$pickupColor, bg-primary)}, #{map.get(setting.$pickupColor, text-secondary)} 15%);
+		--lnk-color: color-mix(in oklab, #{map.get(setting.$pickupColor, text-secondary)}, transparent 15%);
+	}
+}
+
+.\:bg-alert {
+	color: map.get(setting.$pickupColor, text-primary);
+	background-color: var(--accent-middle);
+	@include tool.darkmode {
+		color: map.get(setting.$pickupColor, text-quaternary);
+	}
 }
 
 .u-fill-lmp {

@@ -1,0 +1,99 @@
+@use "sass:map";
+@use "../settings" as setting;
+@use "../tools" as tool;
+
+.c-input,
+.c-checkbox {
+	border-radius: map.get(setting.$borderRadius,s);
+	background: transparent;
+}
+
+.c-input {
+	resize: none;
+	border-color: map.get(setting.$pickupColor, text-tertiary);
+	&:not(:placeholder-shown):valid {
+    border-color: map.get(setting.$brandColors,myTint);
+  }
+  &:not(:placeholder-shown):invalid {
+    border-color: var(--accent-middle);
+		&:focus {
+			outline-color: var(--accent-middle);
+		}
+  }
+	&:focus {
+    outline: 1px solid map.get(setting.$brandColors,myTint);
+	}
+}
+
+.c-form-item {
+	position: relative;
+	&:has(.c-form-error) {
+		.c-input:placeholder-shown {
+			border-color: var(--accent-middle);
+		}
+		&:has(.c-input:placeholder-shown) .c-placeholder {
+			color: var(--accent-middle);
+		}
+	}
+}
+.c-input-label {
+	position: relative;
+}
+.c-required {
+	border-radius: map.get(setting.$borderRadius, s);
+}
+.c-form-error {
+	position: absolute;
+	right: 0;
+	top: calc(100% + setting.f-get-space(xs));
+}
+.c-placeholder {
+	position: absolute;
+	top: calc(100% + setting.f-get-space(m));
+	left: setting.f-get-space(s);
+	transition: all .3s ease-in-out 0s;
+	line-height: map.get(setting.$lineHeight, l);
+	font-weight: map.get(setting.$fontWeight, x);
+	letter-spacing: map.get(setting.$letterSpacing, m);
+	color: map.get(setting.$pickupColor, text-tertiary);
+	background: transparent;
+	padding: 0;
+	width: max-content;
+	.c-form-item:focus-within &,
+	.c-form-item:has(.c-input:not(:placeholder-shown)) & {
+		color: map.get(setting.$brandColors, myTint);
+		transform: translate(-7px,-19px) scale(0.8);
+		background: map.get(setting.$pickupColor, bg-primary);
+		z-index: 2;
+		padding-left: setting.f-get-space(xs);
+		padding-right: setting.f-get-space(xs);
+		font-weight: map.get(setting.$fontWeight, l);
+	}
+	.c-form-item:has(.c-input:not(:placeholder-shown):invalid) & {
+		color: var(--accent-middle);
+	}
+}
+
+.c-checkbox {
+	position: relative;
+	width: setting.f-font-size(l,em);
+	height: setting.f-font-size(l,em);
+	border-radius: map.get(setting.$borderRadius,s);
+	border-color: currentColor;
+	&:checked {
+		background: map.get(setting.$brandColors,myMiddle);
+		border-color: map.get(setting.$pickupColor, colored-primary);
+		&::after {
+			position: absolute;
+			content: "";
+			top: calc(50% - 2px);
+      left: 50%;
+      width: setting.f-font-size(2xs,em);
+      height: calc(setting.f-font-size(2xs,em) / 2);
+      border-color: map.get(setting.$pickupColor, colored-primary);
+      border-style: solid;
+      border-width: 0 0 2px 2px;
+      transform: translate(-50%, -50%) rotate(-45deg);
+		}
+	}
+}
