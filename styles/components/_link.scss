@@ -50,6 +50,14 @@
   	color: var(--lnk-color);
 	}
 }
+.c-card-lnk,
+.c-media-lnk {
+	&:hover,
+	&:focus,
+	&:active {
+		outline-color: var(--lnk-color);
+	}
+}
 .c-card-lnk {
 	min-height: 100%;
 	&:hover,
@@ -59,6 +67,16 @@
 		--lnk-bg: color-mix(in oklab, #{map.get(setting.$pickupColor, bg-primary)}, #{map.get(setting.$pickupColor, text-primary)} 15%);
 		--lnk-color: color-mix(in oklab, #{map.get(setting.$pickupColor, text-primary)}, transparent 15%);
 		.o-frame > * {
+			filter: blur(calc(setting.f-get-space(s) * 0.15)) grayscale(100%);
+			transform: scale(1.15);
+		}
+	}
+}
+.c-media-lnk {
+	&:hover,
+	&:focus,
+	&:active {
+		.c-media-pict .o-frame > * {
 			filter: blur(calc(setting.f-get-space(s) * 0.15)) grayscale(100%);
 			transform: scale(1.15);
 		}

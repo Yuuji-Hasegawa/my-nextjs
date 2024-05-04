@@ -42,13 +42,3 @@
 .u-fill-lmp {
 	fill: var(--accent-middle);
 }
-
-.u-bg-primary {
-	color: map.get(setting.$pickupColor, text-primary);
-	background: map.get(setting.$pickupColor, bg-primary);
-}
-
-.u-bg-quaternary {
-	color: map.get(setting.$pickupColor, text-primary);
-	background: map.get(setting.$pickupColor, bg-quaternary);
-}

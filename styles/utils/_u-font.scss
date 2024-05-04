@@ -2,7 +2,7 @@
 @use "../settings" as setting;
 
 @each $key, $name in setting.$fontScale {
-	$is_target: if($key == 2xs or $key == xs or $key == s or $key == m or $key == l or $key == xl or $key == 2xl or $key == 3xl, true, false);
+	$is_target: if($key == 2xl or $key == 3xl, true, false);
 	@if $is_target {
 		.u-fnt-#{$key} {
 			font-size: var(--fnt-#{$key});
@@ -10,7 +10,7 @@
 	}
 }
 @each $key, $name in setting.$fontWeight {
-	$is_target: if($key == t or $key == x or $key == l or $key == m or $key == b, true, false);
+	$is_target: if($key == t or $key == x or $key == l, true, false);
 	@if $is_target {
 		.u-fnt-w#{$key} {
 			font-weight: map.get(setting.$fontWeight, $key);
@@ -38,7 +38,7 @@
 .\:txt-sec {
 	color: map.get(setting.$pickupColor, text-secondary);
 }
-
+/*
 .\:txt-ter {
 	color: map.get(setting.$pickupColor, text-tertiary);
 }
@@ -46,6 +46,7 @@
 .\:txt-qua {
 	color: map.get(setting.$pickupColor, text-quaternary);
 }
+*/
 
 .\:txt-alert {
 	color: var(--accent-middle);
@@ -67,4 +68,7 @@
 }
 .\:two-line {
 	--trim-line: 2;
+}
+.\:three-line {
+	--trim-line: 3;
 }

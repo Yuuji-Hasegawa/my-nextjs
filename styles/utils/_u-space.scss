@@ -4,11 +4,8 @@
 $positions: (top, right, bottom, left);
 $targets: (
 	cluster: cluster-gutter,
-	grid: grid-gutter,
-	reel: reel-gutter,
 	sidebar: sidebar-gutter,
 	stack: stack-mt,
-	switcher: switcher-gutter,
 ) !default;
 
 @each $key, $name in setting.$spaceScale {
@@ -52,7 +49,7 @@ $targets: (
 }
 
 @each $key, $name in setting.$spaceScale {
-	$is_target: if($key == 2xs or $key == xs or $key == s or $key == m or $key == l or $key == xl or $key == 2xl, true, false);
+	$is_target: if($key == 2xs or $key == xs or $key == s or $key == m or $key == l, true, false);
 	@if $is_target {
 		.u-space-#{$key} {
 			--custom-space: var(--space-#{$key});

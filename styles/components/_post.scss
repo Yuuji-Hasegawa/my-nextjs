@@ -1,0 +1,32 @@
+@use "sass:map";
+@use "../settings" as setting;
+@use "../tools/" as tool;
+
+.c-bio-min {
+	flex-basis: 50px;
+}
+.c-media-pict {
+	flex-basis: 35%;
+}
+.c-media-txt {
+	flex-basis: 0;
+	flex-grow: 999;
+	min-width: min(map.get(setting.$breakpoints, underm),100%);
+}
+.c-entry {
+	p {
+		font-weight: map.get(setting.$fontWeight,x);
+		& + * {
+			margin-top: setting.f-get-space(l, rem);
+		}
+	}
+}
+.c-share-bx {
+	position: relative;
+	& .o-icon {
+		position: absolute;
+		top: 50%;
+		left: setting.f-get-space(m,em);
+		transform: translateY(-50%);
+	}
+}

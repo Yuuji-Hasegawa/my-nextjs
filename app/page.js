@@ -73,8 +73,8 @@ export default function Home() {
 								</picture>
 							</div>
 							<div className='o-stack u-mg-auto :ch-glow'>
-								<p className='c-content-l u-fnt-wx u-mx-auto'>長谷川 雄治（仮面ライター）</p>
-								<p className='c-content-m :slnt u-fnt-wl u-mx-auto'>Yuji Hasegawa (KamenWriter)</p>
+								<p className='c-content-l u-fnt-wx u-mx-auto u-dsp-tbl'>長谷川 雄治（仮面ライター）</p>
+								<p className='c-content-m :slnt u-fnt-wl u-mx-auto u-dsp-tbl'>Yuji Hasegawa (KamenWriter)</p>
 								<div className='o-cluster u-space-s u-insert-cluster u-mx-auto'>
 									<FacebookLink
 										className='c-lnk-txt :has-color c-display-s u-dsp-fx u-pd-xs'

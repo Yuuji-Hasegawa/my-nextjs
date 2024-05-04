@@ -3,17 +3,18 @@
 
 .c-bio-pict {
 	flex-basis: 80px;
+	&\.:bio-m {
+		flex-basis: 100px;
+	}
 	&.\:bio-l {
 		flex-basis: 200px;
 	}
 	& + .\:ch-glow {
 		flex-basis: map.get(setting.$breakpoints, unders);
-		& > * {
+		& > p,
+		& > .o-cluster {
 			width: min(map.get(setting.$breakpoints, overs),100%);
 			min-width: max-content;
-		}
-		& > p {
-			display: table;
 		}
 	}
 }

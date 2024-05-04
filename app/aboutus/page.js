@@ -92,9 +92,9 @@ export default function AboutUs() {
 						</picture>
 					</div>
 					<div className='o-stack u-mg-auto :ch-glow'>
-						<p className='c-display-xs u-fnt-wx u-mx-auto'>長谷川 雄治（仮面ライター）</p>
-						<p className='c-display-2xs :slnt u-fnt-wl u-mx-auto u-mb-l'>Yuji Hasegawa (KamenWriter)</p>
-						<p className='c-content-l u-fnt-wx'>
+						<p className='c-display-xs u-fnt-wx u-mx-auto u-dsp-tbl'>長谷川 雄治（仮面ライター）</p>
+						<p className='c-display-2xs :slnt u-fnt-wl u-mx-auto u-mb-l u-dsp-tbl'>Yuji Hasegawa (KamenWriter)</p>
+						<p className='c-content-l u-fnt-wx u-dsp-tbl'>
 							<span className='u-dsp-b :rd-bx'>
 								1988年2月3日生まれ。2010年3月、大阪電気通信大学 総合情報学部
 								デジタルゲーム学科を卒業後、1年間のアルバイトを経た後、2011年からWeb制作業に従事。
