@@ -1,6 +1,5 @@
 'use client';
-import { usePathname, useSearchParams } from 'next/navigation';
-import BreadCrumb from '@/app/components/includes/breadcrumb';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import {
 	FacebookLink,
@@ -397,7 +396,6 @@ export default function Sample() {
 					</span>
 				</Link>
 			</div>
-			<BreadCrumb />
 		</>
 	);
 }

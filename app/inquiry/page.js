@@ -1,7 +1,6 @@
 'use client';
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
-import BreadCrumb from '@/app/components/includes/breadcrumb';
 import config from '@/config/setting.json';
 
 export default function Inquiry() {
@@ -65,156 +64,153 @@ export default function Inquiry() {
 	);
 
 	return (
-		<>
-			<div className='o-center :rd-bx u-px-clamp u-pb-xl'>
-				<h1 className='c-heading u-fnt-wt'>お問い合わせ</h1>
-				<p className='c-content-l u-fnt-wx u-mb-l'>
-					私たちに興味を持っていただきありがとうございます。
-					<br />
-					ご相談・ご質問は、こちらからお気軽にお問い合わせください。
-				</p>
-				<form className='u-mb-xl' method='post' aria-label='Inquiry Form'>
-					<ul className='o-stack u-space-l u-insert-stack u-mb-xl'>
-						<li className='c-form-item'>
-							<label className='c-input-label u-dsp-ifx u-fx-y-ctr u-mb-s' htmlFor='name'>
-								<span className='c-content-l u-fnt-wx u-mr-s'>お名前</span>
-								<span className='o-box :brd-none :bg-alert c-required c-suppl-l u-fnt-wl u-px-xs' aria-hidden='true'>
-									必須
-								</span>
-								<span className='c-placeholder'>例）お名前</span>
-							</label>
-							<input
-								className='o-box c-input c-content-l u-pd-s u-fnt-wx u-w-max'
-								type='text'
-								id='name'
-								name='name'
-								placeholder=' '
-								autoComplete='name'
-								autoCorrect='off'
-								autoCapitalize='none'
-								required
-								aria-required='true'
-								autoFocus
-								value={formData.name}
-								onChange={(e) => {
-									setFormData({
-										...formData,
-										name: e.target.value,
-									});
-								}}
-								onBlur={handleBlur}
-							/>
-							{formData.nameError && (
-								<span className='c-form-error c-suppl-l :txt-alert u-fnt-wl'>{formData.nameError}</span>
-							)}
-						</li>
-						<li className='c-form-item'>
-							<label className='c-input-label u-dsp-ifx u-fx-y-ctr u-mb-s' htmlFor='email'>
-								<span className='c-content-l u-fnt-wx u-mr-s'>メールアドレス</span>
-								<span className='o-box :brd-none :bg-alert c-required c-suppl-l u-fnt-wl u-px-xs' aria-hidden='true'>
-									必須
-								</span>
-								<span className='c-placeholder'>例）info@examples.com</span>
-							</label>
-							<input
-								className='o-box c-input c-content-l u-pd-s u-fnt-wx u-w-max'
-								type='email'
-								id='email'
-								name='email'
-								pattern='^[a-zA-Z0-9_\+\-]+(\.[a-zA-Z0-9_\+\-]+)*@([a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$'
-								placeholder=' '
-								autoComplete='email'
-								autoCorrect='off'
-								autoCapitalize='none'
-								inputMode='email'
-								required
-								aria-required='true'
-								value={formData.email}
-								onChange={(e) => {
-									setFormData({
-										...formData,
-										email: e.target.value,
-									});
-								}}
-								onBlur={handleBlur}
-							/>
-							{formData.emailError && (
-								<span className='c-form-error c-suppl-l :txt-alert u-fnt-wl'>{formData.emailError}</span>
-							)}
-						</li>
-						<li className='c-form-item'>
-							<label className='c-input-label u-dsp-ifx u-fx-y-ctr u-mb-s' htmlFor='message'>
-								<span className='c-content-l u-fnt-wx u-mr-s'>お問い合わせ内容</span>
-								<span className='c-placeholder'>お気軽にご入力ください</span>
-							</label>
-							<textarea
-								className='o-box c-input c-content-l u-pd-s u-fnt-wx u-w-max'
-								cols='30'
-								rows='10'
-								id='message'
-								name='message'
-								placeholder=' '
-								value={formData.message}
-								onChange={(e) => {
-									setFormData({
-										...formData,
-										message: e.target.value,
-									});
-								}}
-							></textarea>
-						</li>
-					</ul>
-					<div className='u-dsp-fx u-fx-y-ctr u-mb-l u-cursor'>
+		<div className='o-center :rd-bx u-px-clamp u-pb-xl'>
+			<h1 className='c-heading u-fnt-wt'>お問い合わせ</h1>
+			<p className='c-content-l u-fnt-wx u-mb-l'>
+				私たちに興味を持っていただきありがとうございます。
+				<br />
+				ご相談・ご質問は、こちらからお気軽にお問い合わせください。
+			</p>
+			<form className='u-mb-xl' method='post' aria-label='Inquiry Form'>
+				<ul className='o-stack u-space-l u-insert-stack u-mb-xl'>
+					<li className='c-form-item'>
+						<label className='c-input-label u-dsp-ifx u-fx-y-ctr u-mb-s' htmlFor='name'>
+							<span className='c-content-l u-fnt-wx u-mr-s'>お名前</span>
+							<span className='o-box :brd-none :bg-alert c-required c-suppl-l u-fnt-wl u-px-xs' aria-hidden='true'>
+								必須
+							</span>
+							<span className='c-placeholder'>例）お名前</span>
+						</label>
 						<input
-							className='o-box c-checkbox u-fx-shn u-mr-s'
-							type='checkbox'
-							id='acceptance'
-							name='acceptance'
-							value='1'
+							className='o-box c-input c-content-l u-pd-s u-fnt-wx u-w-max'
+							type='text'
+							id='name'
+							name='name'
+							placeholder=' '
+							autoComplete='name'
+							autoCorrect='off'
+							autoCapitalize='none'
 							required
 							aria-required='true'
-							onChange={handleAccept}
+							autoFocus
+							value={formData.name}
+							onChange={(e) => {
+								setFormData({
+									...formData,
+									name: e.target.value,
+								});
+							}}
+							onBlur={handleBlur}
 						/>
-						<label htmlFor='acceptance' className='c-content-l u-fnt-wx u-w-max'>
-							<Link
-								className='c-lnk-txt :has-line :has-color'
-								href={`${protocol + config.site.host + '/privacy-policy'}`}
-								target='_blank'
-								rel='noopener noreferrer'
-							>
-								プライバシーポリシー
-							</Link>
-							に同意する
-						</label>
-					</div>
-					<button
-						className='o-box c-rect-btn :primary c-content-l u-px-m u-py-s'
-						disabled={!formData.acceptance}
-						aria-disabled={!formData.acceptance}
-						type='submit'
-					>
-						送信する
-					</button>
-				</form>
-				<ul className='o-stack u-space-xs u-insert-stack'>
-					<li className='c-note c-content-m u-fnt-wx'>
-						調査等のため、返信にお時間を頂くことがございます。予めご了承ください。
+						{formData.nameError && (
+							<span className='c-form-error c-suppl-l :txt-alert u-fnt-wl'>{formData.nameError}</span>
+						)}
 					</li>
-					<li className='c-note c-content-m u-fnt-wx'>
-						万が一、一週間経っても返信がない場合は大変お手数ですが、
-						<a
+					<li className='c-form-item'>
+						<label className='c-input-label u-dsp-ifx u-fx-y-ctr u-mb-s' htmlFor='email'>
+							<span className='c-content-l u-fnt-wx u-mr-s'>メールアドレス</span>
+							<span className='o-box :brd-none :bg-alert c-required c-suppl-l u-fnt-wl u-px-xs' aria-hidden='true'>
+								必須
+							</span>
+							<span className='c-placeholder'>例）info@examples.com</span>
+						</label>
+						<input
+							className='o-box c-input c-content-l u-pd-s u-fnt-wx u-w-max'
+							type='email'
+							id='email'
+							name='email'
+							pattern='^[a-zA-Z0-9_\+\-]+(\.[a-zA-Z0-9_\+\-]+)*@([a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$'
+							placeholder=' '
+							autoComplete='email'
+							autoCorrect='off'
+							autoCapitalize='none'
+							inputMode='email'
+							required
+							aria-required='true'
+							value={formData.email}
+							onChange={(e) => {
+								setFormData({
+									...formData,
+									email: e.target.value,
+								});
+							}}
+							onBlur={handleBlur}
+						/>
+						{formData.emailError && (
+							<span className='c-form-error c-suppl-l :txt-alert u-fnt-wl'>{formData.emailError}</span>
+						)}
+					</li>
+					<li className='c-form-item'>
+						<label className='c-input-label u-dsp-ifx u-fx-y-ctr u-mb-s' htmlFor='message'>
+							<span className='c-content-l u-fnt-wx u-mr-s'>お問い合わせ内容</span>
+							<span className='c-placeholder'>お気軽にご入力ください</span>
+						</label>
+						<textarea
+							className='o-box c-input c-content-l u-pd-s u-fnt-wx u-w-max'
+							cols='30'
+							rows='10'
+							id='message'
+							name='message'
+							placeholder=' '
+							value={formData.message}
+							onChange={(e) => {
+								setFormData({
+									...formData,
+									message: e.target.value,
+								});
+							}}
+						></textarea>
+					</li>
+				</ul>
+				<div className='u-dsp-fx u-fx-y-ctr u-mb-l u-cursor'>
+					<input
+						className='o-box c-checkbox u-fx-shn u-mr-s'
+						type='checkbox'
+						id='acceptance'
+						name='acceptance'
+						value='1'
+						required
+						aria-required='true'
+						onChange={handleAccept}
+					/>
+					<label htmlFor='acceptance' className='c-content-l u-fnt-wx u-w-max'>
+						<Link
 							className='c-lnk-txt :has-line :has-color'
-							href={`mailto:${config.mail.primary}`}
+							href={`${protocol + config.site.host + '/privacy-policy'}`}
 							target='_blank'
 							rel='noopener noreferrer'
 						>
-							{config.mail.primary}
-						</a>
-						までご連絡ください。
-					</li>
-				</ul>
-			</div>
-			<BreadCrumb />
-		</>
+							プライバシーポリシー
+						</Link>
+						に同意する
+					</label>
+				</div>
+				<button
+					className='o-box c-rect-btn :primary c-content-l u-px-m u-py-s'
+					disabled={!formData.acceptance}
+					aria-disabled={!formData.acceptance}
+					type='submit'
+				>
+					送信する
+				</button>
+			</form>
+			<ul className='o-stack u-space-xs u-insert-stack'>
+				<li className='c-note c-content-m u-fnt-wx'>
+					調査等のため、返信にお時間を頂くことがございます。予めご了承ください。
+				</li>
+				<li className='c-note c-content-m u-fnt-wx'>
+					万が一、一週間経っても返信がない場合は大変お手数ですが、
+					<a
+						className='c-lnk-txt :has-line :has-color'
+						href={`mailto:${config.mail.primary}`}
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						{config.mail.primary}
+					</a>
+					までご連絡ください。
+				</li>
+			</ul>
+		</div>
 	);
 }

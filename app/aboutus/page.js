@@ -1,4 +1,3 @@
-import BreadCrumb from '@/app/components/includes/breadcrumb';
 import config from '@/config/setting.json';
 import {
 	FacebookLink,
@@ -203,7 +202,6 @@ export default function AboutUs() {
 					</dd>
 				</dl>
 			</section>
-			<BreadCrumb />
 		</>
 	);
 }
