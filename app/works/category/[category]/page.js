@@ -1,20 +1,20 @@
 import BreadCrumbs from '@/app/components/includes/breadcrumbs';
-import { getCategoryWorks, worksPerPage } from '@/app/utils/mdQueries';
-import Thumb from '@/app/components/includes/thumb';
 import { CatLabel, CatCard } from '@/app/components/includes/category';
-import Pagination from '@/app/components/includes/pagination';
-import { slugToLabel } from '@/app/utils/sluglabel';
 import JsonLd from '@/app/components/includes/jsonld';
+import Pagination from '@/app/components/includes/pagination';
+import Thumb from '@/app/components/includes/thumb';
+import { metadata as defaultMetadata } from '@/app/layout';
+import { getCategoryWorks, worksPerPage, getAllWorks } from '@/app/utils/mdQueries';
+import { slugToLabel,labelToSlug } from '@/app/utils/sluglabel';
 
 import config from '@/config/setting.json';
-import { metadata as defaultMetadata } from '@/app/layout';
 
 export async function generateMetadata(props) {
-	const slug = props.params.slug;
+	const slug = props.params.category;
 	const label = slugToLabel(slug);
 	const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
 	const pathname = '/works/category';
-	const uri = protocol + config.site.host + pathname + `/${slug}` + '/' + props.params.num;
+	const uri = protocol + config.site.host + pathname + `/${slug}`;
 
 	return {
 		...defaultMetadata,
@@ -38,13 +38,12 @@ export async function generateMetadata(props) {
 	};
 }
 
-const CategoryPaginationWorks = async (props) => {
-	const categorySlug = props.params.slug;
+const CategoryWorks = async (props) => {
+	const categorySlug = props.params.category;
 	const categoryLabel = slugToLabel(categorySlug);
 
 	const { works, numberPages } = await getCategoryWorks({ category: categoryLabel });
-	const currentPage = props.params.num;
-	const limitedWorks = works.slice((currentPage - 1) * worksPerPage, currentPage * worksPerPage);
+	const limitedWorks = works.slice(0, worksPerPage);
 
 	return (
 		<>
@@ -63,7 +62,7 @@ const CategoryPaginationWorks = async (props) => {
 						</li>
 					))}
 				</ul>
-				<Pagination numberPages={numberPages} currentPage={currentPage} />
+				<Pagination numberPages={numberPages} />
 			</div>
 			<BreadCrumbs pageTitle={categoryLabel} pageType='category' />
 			<JsonLd pageTitle={categoryLabel} pageType='category' />
@@ -71,4 +70,12 @@ const CategoryPaginationWorks = async (props) => {
 	);
 };
 
-export default CategoryPaginationWorks;
+export default CategoryWorks;
+
+export async function generateStaticParams() {
+	const { works } = await getAllWorks();
+
+	return works.map((work) => ({
+    category: labelToSlug(work.category),
+  }));
+}

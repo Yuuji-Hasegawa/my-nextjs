@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import Hero from '@/app/components/includes/hero';
-import { getAllWorks } from '@/app/utils/mdQueries';
-import Thumb from '@/app/components/includes/thumb';
 import { CatLabel, CatCard } from '@/app/components/includes/category';
+import Hero from '@/app/components/includes/hero';
+import JsonLd from '@/app/components/includes/jsonld';
+import Thumb from '@/app/components/includes/thumb';
 import {
 	FacebookLink,
 	GithubLink,
@@ -13,13 +13,12 @@ import {
 	WebsiteLink,
 } from '@/app/components/links/sns-links';
 import { IconArrowNext } from '@/app/components/svgs/icons';
-import config from '@/config/setting.json';
-import { headers } from 'next/headers';
 import { metadata as defaultMetadata } from '@/app/layout';
-import JsonLd from '@/app/components/includes/jsonld';
+import { getAllWorks } from '@/app/utils/mdQueries';
+import config from '@/config/setting.json';
 
 const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
-const pathname = headers().get('x-pathname') || '';
+const pathname = '';
 const uri = protocol + config.site.host + pathname;
 
 export const metadata = {
@@ -173,7 +172,7 @@ const Home = async () => {
 					</span>
 				</Link>
 			</div>
-			<JsonLd pathName={pathname} />
+			<JsonLd pathName={pathname} pageType='frontpage' />
 		</>
 	);
 };

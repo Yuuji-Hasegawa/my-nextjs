@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
-import { IconHome } from '@/app/components/svgs/icons';
 import { usePathname } from 'next/navigation';
+import { IconHome } from '@/app/components/svgs/icons';
 import { slugToLabel, labelToSlug } from '@/app/utils/sluglabel';
 
 export default function BreadCrumbs({ pageTitle, pageType }) {

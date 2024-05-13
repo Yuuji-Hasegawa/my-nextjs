@@ -1,7 +1,7 @@
 'use client';
 import { usePathname } from 'next/navigation';
-import config from '@/config/setting.json';
 import { IconCopy } from '@/app/components/svgs/icons';
+import config from '@/config/setting.json';
 
 export default function ShareUrl() {
 	const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';

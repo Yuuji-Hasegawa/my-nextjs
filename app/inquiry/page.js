@@ -1,11 +1,10 @@
 import config from '@/config/setting.json';
-import BreadCrumbs from '@/app/components/includes/breadcrumbs';
-import Form from '@/app/components/forms/form';
-import JsonLd from '@/app/components/includes/jsonld';
 
-import { headers } from 'next/headers';
+import Form from '@/app/components/forms/form';
+import BreadCrumbs from '@/app/components/includes/breadcrumbs';
+import JsonLd from '@/app/components/includes/jsonld';
 const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
-const pathname = headers().get('x-pathname') || '';
+const pathname = '/inquiry';
 const uri = protocol + config.site.host + pathname;
 
 import { metadata as defaultMetadata } from '@/app/layout';
@@ -61,7 +60,7 @@ export default function Inquiry() {
 				</ul>
 			</div>
 			<BreadCrumbs pageTitle={metadata.title} pageType='webpage' />
-			<JsonLd pageTitle={metadata.title} />
+			<JsonLd pageTitle={metadata.title} pageType='webpage' />
 		</>
 	);
 }

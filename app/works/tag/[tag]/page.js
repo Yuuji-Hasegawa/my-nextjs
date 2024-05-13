@@ -1,35 +1,35 @@
 import BreadCrumbs from '@/app/components/includes/breadcrumbs';
-import { getCategoryWorks, worksPerPage } from '@/app/utils/mdQueries';
-import Thumb from '@/app/components/includes/thumb';
 import { CatLabel, CatCard } from '@/app/components/includes/category';
-import { slugToLabel } from '@/app/utils/sluglabel';
-import Pagination from '@/app/components/includes/pagination';
 import JsonLd from '@/app/components/includes/jsonld';
+import Pagination from '@/app/components/includes/pagination';
+import Thumb from '@/app/components/includes/thumb';
+import { metadata as defaultMetadata } from '@/app/layout';
+import { getTagsWorks, worksPerPage, getAllWorks } from '@/app/utils/mdQueries';
+import { slugToLabel, labelToSlug } from '@/app/utils/sluglabel';
 
 import config from '@/config/setting.json';
-import { metadata as defaultMetadata } from '@/app/layout';
 
 export async function generateMetadata(props) {
-	const slug = props.params.slug;
+	const slug = props.params.tag;
 	const label = slugToLabel(slug);
 	const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
-	const pathname = '/works/category';
+	const pathname = '/works/tag';
 	const uri = protocol + config.site.host + pathname + `/${slug}`;
 
 	return {
 		...defaultMetadata,
-		title: label,
+		title: `#${label}`,
 		alternates: {
 			canonical: uri,
 		},
 		openGraph: {
 			...defaultMetadata.openGraph,
-			title: label,
+			title: `#${label}`,
 			url: uri,
 		},
 		twitter: {
 			...defaultMetadata.twitter,
-			title: label,
+			title: `#${label}`,
 		},
 		robots: {
 			index: false,
@@ -38,17 +38,17 @@ export async function generateMetadata(props) {
 	};
 }
 
-const CategoryWorks = async (props) => {
-	const categorySlug = props.params.slug;
-	const categoryLabel = slugToLabel(categorySlug);
+const TagWorks = async (props) => {
+	const tagSlug = props.params.tag;
+	const tagLabel = slugToLabel(tagSlug);
 
-	const { works, numberPages } = await getCategoryWorks({ category: categoryLabel });
+	const { works, numberPages } = await getTagsWorks({ tag: tagLabel });
 	const limitedWorks = works.slice(0, worksPerPage);
 
 	return (
 		<>
 			<div className='o-center u-pb-xl u-px-clamp'>
-				<h1 className='c-heading u-fnt-wt'>{categoryLabel}</h1>
+				<h1 className='c-heading u-fnt-wt'>{`# ${tagLabel}`}</h1>
 				<ul className='o-grid o-grid--quart'>
 					{limitedWorks.map((work, index) => (
 						<li key={index}>
@@ -64,10 +64,24 @@ const CategoryWorks = async (props) => {
 				</ul>
 				<Pagination numberPages={numberPages} />
 			</div>
-			<BreadCrumbs pageTitle={categoryLabel} pageType='category' />
-			<JsonLd pageTitle={categoryLabel} pageType='category' />
+			<BreadCrumbs pageTitle={`# ${tagLabel}`} pageType='tag' />
+			<JsonLd pageTitle={`#${tagLabel}`} pageType='tag' />
 		</>
 	);
 };
 
-export default CategoryWorks;
+export default TagWorks;
+
+export async function generateStaticParams() {
+	const { works } = await getAllWorks();
+
+	const paths = works.flatMap(work => {
+		return work.tags.map(tag => {
+			return {
+				tag: labelToSlug(tag)
+			};
+		});
+	});
+
+	return paths;
+}

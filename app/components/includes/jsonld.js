@@ -1,8 +1,8 @@
 'use client';
 import { usePathname } from 'next/navigation';
-import config from '@/config/setting.json';
 import Script from 'next/script';
 import { slugToLabel } from '@/app/utils/sluglabel';
+import config from '@/config/setting.json';
 
 export default function JsonLd({ pageTitle, pageImage, pageType, catLabel, pubDate, updateDate, description }) {
 	const pathName = usePathname();
@@ -40,7 +40,7 @@ export default function JsonLd({ pageTitle, pageImage, pageType, catLabel, pubDa
 				name: 'お探しのページは見つかりませんでした',
 			},
 		});
-	} else if (segments.length == 1) {
+	} else if (pageType === 'webpage' && segments.length == 1) {
 		breadArray.push({
 			'@type': 'ListItem',
 			position: 2,

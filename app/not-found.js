@@ -1,14 +1,12 @@
 import Link from 'next/link';
-import { IconHome } from '@/app/components/svgs/icons';
 import BreadCrumbs from '@/app/components/includes/breadcrumbs';
-import { headers } from 'next/headers';
-import config from '@/config/setting.json';
-import { metadata as defaultMetadata } from '@/app/layout';
 import JsonLd from '@/app/components/includes/jsonld';
+import { IconHome } from '@/app/components/svgs/icons';
+import { metadata as defaultMetadata } from '@/app/layout';
+import config from '@/config/setting.json';
 
 const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
-const pathname = headers().get('x-pathname') || '';
-const uri = protocol + config.site.host + pathname;
+const uri = protocol + config.site.host;
 
 export const metadata = {
 	...defaultMetadata,
@@ -36,7 +34,7 @@ export default function NotFound() {
 			<div className='o-center :rd-bx u-px-clamp u-pb-xl'>
 				<h1 className='c-heading u-fnt-wt'>お探しのページは見つかりませんでした</h1>
 				<p className='c-content-l u-fnt-wx u-mb-l'>
-					大変申し訳ございませんが、お探しのページ(URL:{uri})は見つかりませんでした。
+					大変申し訳ございませんが、お探しのページは見つかりませんでした。
 					<br />
 					アドレスバーに直接URLを入力された場合は、アドレスが正しく入力されているか、もう一度ご確認下さい。
 				</p>

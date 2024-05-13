@@ -1,10 +1,22 @@
+'use client';
 import Link from 'next/link';
+import { usePathname, useSelectedLayoutSegments } from 'next/navigation';
 import ButtonMenu from '@/app/components/buttons/button-menu';
 import { LogoLink, KwLink, BbnLink, NxzLink } from '@/app/components/links/bnr-links';
 import { FacebookLink, TwitterLink, InstagramLink } from '@/app/components/links/sns-links';
 import { IconBars, IconEnvelope, IconHome, IconInfo, IconUser } from '@/app/components/svgs/icons';
 
 export default function Sidebar({ toggle, open }) {
+	const pathname = usePathname();
+	const segments = useSelectedLayoutSegments();
+
+	const isActive = (path) => {
+		if (path === '/' && pathname === '/') {
+			return true;
+		}
+		return Object.values(segments).includes(path);
+	};
+
 	return (
 		<div id='sidebar' className=':bg-primary u-transition' aria-hidden={!open} tabIndex={open ? '-1' : 'false'}>
 			<div className='u-dsp-fx u-py-s'>
@@ -15,7 +27,11 @@ export default function Sidebar({ toggle, open }) {
 				<nav className='o-box :brd-b u-py-m'>
 					<ul className='o-stack'>
 						<li>
-							<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/'>
+							<Link
+								className='u-dsp-fx u-fx-y-ctr :bg-ghost'
+								href='/'
+								aria-current={isActive('/') ? 'page' : undefined}
+							>
 								<span className='o-box c-sq-btn :brd-none u-fnt-2xl u-mr-m'>
 									<IconHome className='o-icon' />
 								</span>
@@ -23,7 +39,11 @@ export default function Sidebar({ toggle, open }) {
 							</Link>
 						</li>
 						<li>
-							<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/aboutus'>
+							<Link
+								className='u-dsp-fx u-fx-y-ctr :bg-ghost'
+								href='/aboutus'
+								aria-current={isActive('aboutus') ? 'page' : undefined}
+							>
 								<span className='o-box c-sq-btn :brd-none u-fnt-2xl u-mr-m'>
 									<IconInfo className='o-icon' />
 								</span>
@@ -31,7 +51,11 @@ export default function Sidebar({ toggle, open }) {
 							</Link>
 						</li>
 						<li>
-							<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/works'>
+							<Link
+								className='u-dsp-fx u-fx-y-ctr :bg-ghost'
+								href='/works'
+								aria-current={isActive('works') ? 'page' : undefined}
+							>
 								<span className='o-box c-sq-btn :brd-none u-fnt-2xl u-mr-m'>
 									<IconBars className='o-icon' />
 								</span>
@@ -47,7 +71,11 @@ export default function Sidebar({ toggle, open }) {
 							</Link>
 						</li>
 						<li>
-							<Link className='u-dsp-fx u-fx-y-ctr :bg-ghost' href='/inquiry'>
+							<Link
+								className='u-dsp-fx u-fx-y-ctr :bg-ghost'
+								href='/inquiry'
+								aria-current={isActive('inquiry') ? 'page' : undefined}
+							>
 								<span className='o-box c-sq-btn :brd-none u-fnt-2xl u-mr-m'>
 									<IconEnvelope className='o-icon' />
 								</span>

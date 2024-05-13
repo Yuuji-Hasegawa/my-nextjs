@@ -1,16 +1,15 @@
-import { getAllWorks, worksPerPage } from '@/app/utils/mdQueries';
-import Thumb from '@/app/components/includes/thumb';
-import { CatLabel, CatCard } from '@/app/components/includes/category';
-import Pagination from '@/app/components/includes/pagination';
 import BreadCrumbs from '@/app/components/includes/breadcrumbs';
+import { CatLabel, CatCard } from '@/app/components/includes/category';
 import JsonLd from '@/app/components/includes/jsonld';
-
-import { headers } from 'next/headers';
-import config from '@/config/setting.json';
+import Pagination from '@/app/components/includes/pagination';
+import Thumb from '@/app/components/includes/thumb';
 import { metadata as defaultMetadata } from '@/app/layout';
+import { getAllWorks, worksPerPage } from '@/app/utils/mdQueries';
+
+import config from '@/config/setting.json';
 
 const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
-const pathname = headers().get('x-pathname') || '';
+const pathname = '/works';
 const uri = protocol + config.site.host + pathname;
 
 export const metadata = {
@@ -58,7 +57,7 @@ const Works = async () => {
 				<Pagination numberPages={numberPages} />
 			</div>
 			<BreadCrumbs pageTitle={metadata.title} pageType='webpage' />
-			<JsonLd pageTitle={metadata.title} />
+			<JsonLd pageTitle={metadata.title} pageType='webpage' />
 		</>
 	);
 };

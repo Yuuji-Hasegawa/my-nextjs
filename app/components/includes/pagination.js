@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
-import { IconArrowPrev, IconArrowNext } from '@/app/components/svgs/icons';
 import { usePathname } from 'next/navigation';
+import { IconArrowPrev, IconArrowNext } from '@/app/components/svgs/icons';
 
 export default function Pagination({ numberPages, currentPage }) {
 	const pathname = usePathname();
@@ -58,7 +58,7 @@ export default function Pagination({ numberPages, currentPage }) {
 						href={currentPage === 1 ? firstPage : `${paginationPath}${currentPage}`}
 						className='o-box :brd-none :bg-secondary c-sq-btn c-content-l u-fnt-wl'
 						aria-label='現在のページ'
-						aria-current='true'
+						aria-current='page'
 						title={`${currentPage}ページ`}
 					>
 						{currentPage}

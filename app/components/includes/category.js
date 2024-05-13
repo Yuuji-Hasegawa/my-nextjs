@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
-import { IconFolder } from '@/app/components/svgs/icons';
 import { usePathname } from 'next/navigation';
+import { IconFolder } from '@/app/components/svgs/icons';
 import { labelToSlug, slugToLabel } from '@/app/utils/sluglabel';
 
 export const CatLabel = ({ label }) => {
@@ -44,10 +44,10 @@ export const CatLink = ({ pageSlug, categorySlug }) => {
 };
 
 export const Tags = ({ pageSlug, categorySlug, tags }) => {
+	const pathname = usePathname();
 	if (tags.length === 0) {
 		return null;
 	}
-	const pathname = usePathname();
 	let splitPath;
 	if (categorySlug) {
 		splitPath = pathname.replace(`/${categorySlug}/${pageSlug}`, '');

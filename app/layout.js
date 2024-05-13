@@ -1,4 +1,5 @@
 import '@/styles/styles.scss';
+import { Suspense } from 'react';
 import Gtm from '@/app/components/includes/gtm';
 import Header from '@/app/components/includes/header';
 import Footer from '@/app/components/includes/footer';
@@ -100,7 +101,9 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang='ja'>
 			<body>
-				<Gtm />
+				<Suspense>
+					<Gtm />
+				</Suspense>
 				<link
 					rel='preload'
 					href='/fonts/RobotoFlex-VariableFont.woff2'

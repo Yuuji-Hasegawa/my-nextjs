@@ -1,12 +1,12 @@
-import { getAllWorks, worksPerPage } from '@/app/utils/mdQueries';
-import Thumb from '@/app/components/includes/thumb';
-import { CatLabel, CatCard } from '@/app/components/includes/category';
-import Pagination from '@/app/components/includes/pagination';
 import BreadCrumbs from '@/app/components/includes/breadcrumbs';
+import { CatLabel, CatCard } from '@/app/components/includes/category';
 import JsonLd from '@/app/components/includes/jsonld';
+import Pagination from '@/app/components/includes/pagination';
+import Thumb from '@/app/components/includes/thumb';
 
-import config from '@/config/setting.json';
 import { metadata as defaultMetadata } from '@/app/layout';
+import { getAllWorks, worksPerPage } from '@/app/utils/mdQueries';
+import config from '@/config/setting.json';
 
 export async function generateMetadata(props) {
 	const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
@@ -66,3 +66,12 @@ const PaginationWorks = async (props) => {
 };
 
 export default PaginationWorks;
+
+export async function generateStaticParams() {
+	const { numberPages } = await getAllWorks();
+
+	const paths = Array.from({ length: numberPages }).map((_, index) => ({
+    num: `${index + 2}`,
+  }));
+  return paths;
+}

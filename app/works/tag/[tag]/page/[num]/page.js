@@ -1,20 +1,20 @@
-import { getTagsWorks, worksPerPage } from '@/app/utils/mdQueries';
-import Thumb from '@/app/components/includes/thumb';
-import { CatLabel, CatCard } from '@/app/components/includes/category';
-import { slugToLabel } from '@/app/utils/sluglabel';
-import Pagination from '@/app/components/includes/pagination';
 import BreadCrumbs from '@/app/components/includes/breadcrumbs';
+import { CatLabel, CatCard } from '@/app/components/includes/category';
 import JsonLd from '@/app/components/includes/jsonld';
+import Pagination from '@/app/components/includes/pagination';
+import Thumb from '@/app/components/includes/thumb';
+import { metadata as defaultMetadata } from '@/app/layout';
+import { getTagsWorks, worksPerPage, getAllWorks } from '@/app/utils/mdQueries';
+import { slugToLabel, labelToSlug } from '@/app/utils/sluglabel';
 
 import config from '@/config/setting.json';
-import { metadata as defaultMetadata } from '@/app/layout';
 
 export async function generateMetadata(props) {
-	const slug = props.params.slug;
+	const slug = props.params.tag;
 	const label = slugToLabel(slug);
 	const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
 	const pathname = '/works/tag';
-	const uri = protocol + config.site.host + pathname + `/${slug}`;
+	const uri = protocol + config.site.host + pathname + `/${slug}` + '/' + props.params.num;
 
 	return {
 		...defaultMetadata,
@@ -38,12 +38,13 @@ export async function generateMetadata(props) {
 	};
 }
 
-const TagWorks = async (props) => {
-	const tagSlug = props.params.slug;
+const TagPaginationWorks = async (props) => {
+	const tagSlug = props.params.tag;
 	const tagLabel = slugToLabel(tagSlug);
 
 	const { works, numberPages } = await getTagsWorks({ tag: tagLabel });
-	const limitedWorks = works.slice(0, worksPerPage);
+	const currentPage = props.params.num;
+	const limitedWorks = works.slice((currentPage - 1) * worksPerPage, currentPage * worksPerPage);
 
 	return (
 		<>
@@ -62,7 +63,7 @@ const TagWorks = async (props) => {
 						</li>
 					))}
 				</ul>
-				<Pagination numberPages={numberPages} />
+				<Pagination numberPages={numberPages} currentPage={currentPage} />
 			</div>
 			<BreadCrumbs pageTitle={`# ${tagLabel}`} pageType='tag' />
 			<JsonLd pageTitle={`#${tagLabel}`} pageType='tag' />
@@ -70,4 +71,24 @@ const TagWorks = async (props) => {
 	);
 };
 
-export default TagWorks;
+export default TagPaginationWorks;
+
+export async function generateStaticParams() {
+	const { works, numberPages } = await getAllWorks();
+
+	let paths = [];
+
+	works.forEach(work => {
+		work.tags.forEach(tag => {
+			const tagSlug = labelToSlug(tag);
+			for (let i = 1; i <= numberPages; i++) {
+			paths.push({
+				tag: tagSlug,
+				num: `${i}`
+			});
+			}
+		});
+	});
+
+	return paths;
+}

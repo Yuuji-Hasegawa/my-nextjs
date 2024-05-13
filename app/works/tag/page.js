@@ -1,16 +1,14 @@
-import { getAllTags } from '@/app/utils/mdQueries';
-import { labelToSlug } from '@/app/utils/sluglabel';
 import Link from 'next/link';
 import BreadCrumbs from '@/app/components/includes/breadcrumbs';
 import JsonLd from '@/app/components/includes/jsonld';
+import { metadata as defaultMetadata } from '@/app/layout';
+import { getAllTags } from '@/app/utils/mdQueries';
+import { labelToSlug } from '@/app/utils/sluglabel';
 
-import { headers } from 'next/headers';
 import config from '@/config/setting.json';
 const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
-const pathname = headers().get('x-pathname') || '';
+const pathname = '/works/tag';
 const uri = protocol + config.site.host + pathname;
-
-import { metadata as defaultMetadata } from '@/app/layout';
 
 export const metadata = {
 	...defaultMetadata,

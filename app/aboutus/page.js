@@ -1,4 +1,3 @@
-import config from '@/config/setting.json';
 import BreadCrumbs from '@/app/components/includes/breadcrumbs';
 import JsonLd from '@/app/components/includes/jsonld';
 import {
@@ -10,14 +9,12 @@ import {
 	NoteLink,
 	WebsiteLink,
 } from '@/app/components/links/sns-links';
-
-import { headers } from 'next/headers';
+import { metadata as defaultMetadata } from '@/app/layout';
+import config from '@/config/setting.json';
 
 const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
-const pathname = headers().get('x-pathname') || '';
+const pathname = '/aboutus';
 const uri = protocol + config.site.host + pathname;
-
-import { metadata as defaultMetadata } from '@/app/layout';
 
 export const metadata = {
 	...defaultMetadata,
@@ -229,7 +226,7 @@ export default function AboutUs() {
 				</dl>
 			</section>
 			<BreadCrumbs pageTitle={metadata.title} pageType='webpage' />
-			<JsonLd pageTitle={metadata.title} />
+			<JsonLd pageTitle={metadata.title} pageType='webpage' />
 		</>
 	);
 }

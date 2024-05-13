@@ -1,8 +1,10 @@
-import BreadCrumbs from '@/app/components/includes/breadcrumbs';
-import { getAllWorks, getSingleWork, getRelatedWork } from '@/app/utils/mdQueries';
 import Link from 'next/link';
 import ShareUrl from '@/app/components/forms/share-url';
+import BreadCrumbs from '@/app/components/includes/breadcrumbs';
+import { CatLink, Tags, CatCard, CatLabel } from '@/app/components/includes/category';
+import { PubDate, UpdateDate } from '@/app/components/includes/date';
 import JsonLd from '@/app/components/includes/jsonld';
+import Thumb from '@/app/components/includes/thumb';
 import {
 	FacebookLink,
 	GithubLink,
@@ -13,13 +15,11 @@ import {
 	WebsiteLink,
 } from '@/app/components/links/sns-links';
 import { IconExternal, IconArrowNext } from '@/app/components/svgs/icons';
-import { PubDate, UpdateDate } from '@/app/components/includes/date';
-import { CatLink, Tags, CatCard, CatLabel } from '@/app/components/includes/category';
-import Thumb from '@/app/components/includes/thumb';
-import { labelToSlug } from '@/app/utils/sluglabel';
 
-import config from '@/config/setting.json';
 import { metadata as defaultMetadata } from '@/app/layout';
+import { getAllWorks, getSingleWork, getRelatedWork } from '@/app/utils/mdQueries';
+import { labelToSlug } from '@/app/utils/sluglabel';
+import config from '@/config/setting.json';
 
 function nl2br(str) {
 	return str.replace(/(\r\n|\n|\r)/gm, '<br>');
@@ -257,7 +257,7 @@ const SingleWork = async (props) => {
 				</div>
 			</div>
 			<div className='o-center u-px-clamp u-mb-l'>
-				<h2 className='c-sec-heading :slnt u-fnt-wx u-txt-ctr'>What's New</h2>
+				<h2 className='c-sec-heading :slnt u-fnt-wx u-txt-ctr'>{`What's New`}</h2>
 				<ul className='o-grid o-grid--tri'>
 					{lastWorks.map((work, index) => (
 						<li key={index}>
@@ -307,3 +307,12 @@ const SingleWork = async (props) => {
 };
 
 export default SingleWork;
+
+export async function generateStaticParams() {
+	const { works } = await getAllWorks();
+
+	return works.map((work) => ({
+		slug: work.slug,
+    category: labelToSlug(work.category),
+  }));
+}

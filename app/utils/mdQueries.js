@@ -114,14 +114,26 @@ export async function getRelatedWork(slug) {
 
 export async function getAllCategories() {
 	const { works } = await getAllWorks();
-	const categories = [...new Set(works.map((work) => work.category).filter(Boolean))];
+	const categories = works.reduce((acc, work) => {
+		if (!acc.includes(work.category) && work.category) {
+			acc.push(work.category);
+		}
+		return acc;
+	}, []);
 
 	return categories;
 }
 
 export async function getAllTags() {
 	const { works } = await getAllWorks();
-	const tags = [...new Set(works.flatMap((work) => work.tags).filter(Boolean))];
+	const tags = works
+		.flatMap((work) => work.tags)
+		.reduce((acc, tag) => {
+			if (!acc.includes(tag) && tag) {
+				acc.push(tag);
+			}
+			return acc;
+		}, []);
 
 	return tags;
 }

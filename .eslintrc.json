@@ -10,23 +10,7 @@
 	"rules": {
 		"import/no-unresolved": "off",
 		"no-unused-vars": "off",
-		"@next/next/no-img-element": "off",
-		"import/order": [
-			"error",
-			{
-				"groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object"],
-				"pathGroups": [
-					{
-						"pattern": "{react,react-dom/**,react-router-dom}",
-						"group": "builtin",
-						"position": "before"
-					}
-				],
-				"pathGroupsExcludedImportTypes": ["builtin"],
-				"alphabetize": {
-					"order": "asc"
-				}
-			}
-		]
+		"no-useless-escape": "off",
+		"@next/next/no-img-element": "off"
 	}
 }

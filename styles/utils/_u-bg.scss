@@ -12,6 +12,10 @@
 		--lnk-bg: color-mix(in oklab, #{map.get(setting.$pickupColor, bg-primary)}, #{map.get(setting.$pickupColor, text-primary)} 15%);
 		--lnk-color: color-mix(in oklab, #{map.get(setting.$pickupColor, text-primary)}, transparent 15%);
 	}
+	&[aria-current="page"] {
+		background-color: color-mix(in oklab, #{map.get(setting.$pickupColor, bg-primary)}, #{map.get(setting.$pickupColor, text-primary)} 15%);
+		color: color-mix(in oklab, #{map.get(setting.$pickupColor, text-primary)}, transparent 15%);
+	}
 }
 
 .\:bg-primary {
@@ -28,6 +32,10 @@
 	&:active {
 		--lnk-bg: color-mix(in oklab, #{map.get(setting.$pickupColor, bg-primary)}, #{map.get(setting.$pickupColor, text-secondary)} 15%);
 		--lnk-color: color-mix(in oklab, #{map.get(setting.$pickupColor, text-secondary)}, transparent 15%);
+	}
+	&[aria-current="page"] {
+		background-color: color-mix(in oklab, #{map.get(setting.$pickupColor, bg-primary)}, #{map.get(setting.$pickupColor, text-secondary)} 15%);
+		color: color-mix(in oklab, #{map.get(setting.$pickupColor, text-secondary)}, transparent 15%);
 	}
 }
 

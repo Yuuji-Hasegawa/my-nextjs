@@ -1,7 +1,7 @@
 'use client';
+import { useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
-import { useEffect } from 'react';
 
 export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 

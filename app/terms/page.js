@@ -1,12 +1,11 @@
 import config from '@/config/setting.json';
+
 import Link from 'next/link';
 import BreadCrumbs from '@/app/components/includes/breadcrumbs';
 import JsonLd from '@/app/components/includes/jsonld';
 
-import { headers } from 'next/headers';
-
 const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
-const pathname = headers().get('x-pathname') || '';
+const pathname = '/terms';
 const uri = protocol + config.site.host + pathname;
 
 import { metadata as defaultMetadata } from '@/app/layout';
@@ -249,7 +248,7 @@ export default function Terms() {
 				<p className='c-suppl-l u-txt-r u-fnt-wx'>【{config.terms.publish} 制定】</p>
 			</div>
 			<BreadCrumbs pageTitle={metadata.title} pageType='webpage' />
-			<JsonLd pageTitle={metadata.title} />
+			<JsonLd pageTitle={metadata.title} pageType='webpage' />
 		</>
 	);
 }
