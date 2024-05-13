@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Hero from '@/app/components/includes/hero';
-import BreadCrumbs from '@/app/components/includes/breadcrumbs';
+import { getAllWorks } from '@/app/utils/mdQueries';
+import Thumb from '@/app/components/includes/thumb';
+import { CatLabel, CatCard } from '@/app/components/includes/category';
 import {
 	FacebookLink,
 	GithubLink,
@@ -35,7 +37,10 @@ export const metadata = {
 	},
 };
 
-export default function Home() {
+const Home = async () => {
+	const { works } = await getAllWorks();
+	const limitedWorks = works.slice(0, 8);
+
 	return (
 		<>
 			<Hero />
@@ -149,174 +154,17 @@ export default function Home() {
 			<div className='o-center u-pt-l u-pb-xl u-px-clamp'>
 				<h2 className='c-display-l :slnt u-fnt-wx u-mb-l u-txt-ctr'>WORKS</h2>
 				<ul className='o-grid o-grid--quart u-mb-m'>
-					<li>
-						<Link className='o-box o-stack :brd-none c-card-lnk' href='/'>
-							<picture className='o-frame'>
-								<source type='image/avif' srcSet='/images/thumb.avif' />
-								<source type='image/webp' srcSet='/images/thumb.webp' />
-								<img
-									src='/images/thumb.png'
-									width='100%'
-									height='100%'
-									loading='lazy'
-									decoding='async'
-									fetchPriority='low'
-									alt=''
-								/>
-							</picture>
-							<span className='o-stack :bg-ghost u-py-s u-px-m'>
-								<span className='c-content-l :txt-trim :two-line u-fnt-wl'>サンプル事例</span>
-								<span className='c-label-l :txt-sec u-fnt-wx'>カテゴリー</span>
-							</span>
-						</Link>
-					</li>
-					<li>
-						<Link className='o-box o-stack :brd-none c-card-lnk' href='/'>
-							<picture className='o-frame'>
-								<source type='image/avif' srcSet='/images/thumb.avif' />
-								<source type='image/webp' srcSet='/images/thumb.webp' />
-								<img
-									src='/images/thumb.png'
-									width='100%'
-									height='100%'
-									loading='lazy'
-									decoding='async'
-									fetchPriority='low'
-									alt=''
-								/>
-							</picture>
-							<span className='o-stack :bg-ghost u-py-s u-px-m'>
-								<span className='c-content-l :txt-trim :two-line u-fnt-wl'>サンプル事例</span>
-								<span className='c-label-l :txt-sec u-fnt-wx'>カテゴリー</span>
-							</span>
-						</Link>
-					</li>
-					<li>
-						<Link className='o-box o-stack :brd-none c-card-lnk' href='/'>
-							<picture className='o-frame'>
-								<source type='image/avif' srcSet='/images/thumb.avif' />
-								<source type='image/webp' srcSet='/images/thumb.webp' />
-								<img
-									src='/images/thumb.png'
-									width='100%'
-									height='100%'
-									loading='lazy'
-									decoding='async'
-									fetchPriority='low'
-									alt=''
-								/>
-							</picture>
-							<span className='o-stack :bg-ghost u-py-s u-px-m'>
-								<span className='c-content-l :txt-trim :two-line u-fnt-wl'>サンプル事例</span>
-								<span className='c-label-l :txt-sec u-fnt-wx'>カテゴリー</span>
-							</span>
-						</Link>
-					</li>
-					<li>
-						<Link className='o-box o-stack :brd-none c-card-lnk' href='/'>
-							<picture className='o-frame'>
-								<source type='image/avif' srcSet='/images/thumb.avif' />
-								<source type='image/webp' srcSet='/images/thumb.webp' />
-								<img
-									src='/images/thumb.png'
-									width='100%'
-									height='100%'
-									loading='lazy'
-									decoding='async'
-									fetchPriority='low'
-									alt=''
-								/>
-							</picture>
-							<span className='o-stack :bg-ghost u-py-s u-px-m'>
-								<span className='c-content-l :txt-trim :two-line u-fnt-wl'>サンプル事例</span>
-								<span className='c-label-l :txt-sec u-fnt-wx'>カテゴリー</span>
-							</span>
-						</Link>
-					</li>
-					<li>
-						<Link className='o-box o-stack :brd-none c-card-lnk' href='/'>
-							<picture className='o-frame'>
-								<source type='image/avif' srcSet='/images/thumb.avif' />
-								<source type='image/webp' srcSet='/images/thumb.webp' />
-								<img
-									src='/images/thumb.png'
-									width='100%'
-									height='100%'
-									loading='lazy'
-									decoding='async'
-									fetchPriority='low'
-									alt=''
-								/>
-							</picture>
-							<span className='o-stack :bg-ghost u-py-s u-px-m'>
-								<span className='c-content-l :txt-trim :two-line u-fnt-wl'>サンプル事例</span>
-								<span className='c-label-l :txt-sec u-fnt-wx'>カテゴリー</span>
-							</span>
-						</Link>
-					</li>
-					<li>
-						<Link className='o-box o-stack :brd-none c-card-lnk' href='/'>
-							<picture className='o-frame'>
-								<source type='image/avif' srcSet='/images/thumb.avif' />
-								<source type='image/webp' srcSet='/images/thumb.webp' />
-								<img
-									src='/images/thumb.png'
-									width='100%'
-									height='100%'
-									loading='lazy'
-									decoding='async'
-									fetchPriority='low'
-									alt=''
-								/>
-							</picture>
-							<span className='o-stack :bg-ghost u-py-s u-px-m'>
-								<span className='c-content-l :txt-trim :two-line u-fnt-wl'>サンプル事例</span>
-								<span className='c-label-l :txt-sec u-fnt-wx'>カテゴリー</span>
-							</span>
-						</Link>
-					</li>
-					<li>
-						<Link className='o-box o-stack :brd-none c-card-lnk' href='/'>
-							<picture className='o-frame'>
-								<source type='image/avif' srcSet='/images/thumb.avif' />
-								<source type='image/webp' srcSet='/images/thumb.webp' />
-								<img
-									src='/images/thumb.png'
-									width='100%'
-									height='100%'
-									loading='lazy'
-									decoding='async'
-									fetchPriority='low'
-									alt=''
-								/>
-							</picture>
-							<span className='o-stack :bg-ghost u-py-s u-px-m'>
-								<span className='c-content-l :txt-trim :two-line u-fnt-wl'>サンプル事例</span>
-								<span className='c-label-l :txt-sec u-fnt-wx'>カテゴリー</span>
-							</span>
-						</Link>
-					</li>
-					<li>
-						<Link className='o-box o-stack :brd-none c-card-lnk' href='/'>
-							<picture className='o-frame'>
-								<source type='image/avif' srcSet='/images/thumb.avif' />
-								<source type='image/webp' srcSet='/images/thumb.webp' />
-								<img
-									src='/images/thumb.png'
-									width='100%'
-									height='100%'
-									loading='lazy'
-									decoding='async'
-									fetchPriority='low'
-									alt=''
-								/>
-							</picture>
-							<span className='o-stack :bg-ghost u-py-s u-px-m'>
-								<span className='c-content-l :txt-trim :two-line u-fnt-wl'>サンプル事例</span>
-								<span className='c-label-l :txt-sec u-fnt-wx'>カテゴリー</span>
-							</span>
-						</Link>
-					</li>
+					{limitedWorks.map((work, index) => (
+						<li key={index}>
+							<CatCard target={`/works/${work.slug}`} category={work.category}>
+								<Thumb srcPath={work.frontmatter.image} />
+								<span className='o-stack :bg-ghost u-py-s u-px-m'>
+									<span className='c-content-l :txt-trim :two-line u-fnt-wl'>{work.frontmatter.title}</span>
+									<CatLabel label={work.frontmatter.category} />
+								</span>
+							</CatCard>
+						</li>
+					))}
 				</ul>
 				<Link className='c-lnk-txt u-py-s u-pl-m u-dsp-fx u-fx-y-ctr u-ml-auto u-mw-cnt' href='/works'>
 					<span className='c-display-xs :slnt u-mr-s u-fnt-wl'>MORE</span>
@@ -325,8 +173,9 @@ export default function Home() {
 					</span>
 				</Link>
 			</div>
-			<BreadCrumbs />
 			<JsonLd pathName={pathname} />
 		</>
 	);
-}
+};
+
+export default Home;
