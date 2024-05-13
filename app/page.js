@@ -1,7 +1,6 @@
-'use client';
-
 import Link from 'next/link';
 import Hero from '@/app/components/includes/hero';
+import BreadCrumbs from '@/app/components/includes/breadcrumbs';
 import {
 	FacebookLink,
 	GithubLink,
@@ -12,6 +11,29 @@ import {
 	WebsiteLink,
 } from '@/app/components/links/sns-links';
 import { IconArrowNext } from '@/app/components/svgs/icons';
+import config from '@/config/setting.json';
+import { headers } from 'next/headers';
+import { metadata as defaultMetadata } from '@/app/layout';
+import JsonLd from '@/app/components/includes/jsonld';
+
+const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
+const pathname = headers().get('x-pathname') || '';
+const uri = protocol + config.site.host + pathname;
+
+export const metadata = {
+	...defaultMetadata,
+	alternates: {
+		canonical: uri,
+	},
+	openGraph: {
+		...defaultMetadata.openGraph,
+		url: uri,
+	},
+	robots: {
+		index: true,
+		follow: true,
+	},
+};
 
 export default function Home() {
 	return (
@@ -303,6 +325,8 @@ export default function Home() {
 					</span>
 				</Link>
 			</div>
+			<BreadCrumbs />
+			<JsonLd pathName={pathname} />
 		</>
 	);
 }

@@ -1,4 +1,6 @@
 import config from '@/config/setting.json';
+import BreadCrumbs from '@/app/components/includes/breadcrumbs';
+import JsonLd from '@/app/components/includes/jsonld';
 import {
 	FacebookLink,
 	GithubLink,
@@ -9,9 +11,33 @@ import {
 	WebsiteLink,
 } from '@/app/components/links/sns-links';
 
+import { headers } from 'next/headers';
+
+const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
+const pathname = headers().get('x-pathname') || '';
+const uri = protocol + config.site.host + pathname;
+
+import { metadata as defaultMetadata } from '@/app/layout';
+
 export const metadata = {
+	...defaultMetadata,
 	title: 'このサイトについて',
-	description: 'this is contact',
+	alternates: {
+		canonical: uri,
+	},
+	openGraph: {
+		...defaultMetadata.openGraph,
+		title: 'このサイトについて',
+		url: uri,
+	},
+	twitter: {
+		...defaultMetadata.twitter,
+		title: 'このサイトについて',
+	},
+	robots: {
+		index: true,
+		follow: true,
+	},
 };
 
 export default function AboutUs() {
@@ -202,6 +228,8 @@ export default function AboutUs() {
 					</dd>
 				</dl>
 			</section>
+			<BreadCrumbs pageTitle={metadata.title} pageType='webpage' />
+			<JsonLd pageTitle={metadata.title} />
 		</>
 	);
 }

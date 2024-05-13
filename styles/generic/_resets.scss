@@ -51,7 +51,7 @@
 body {
 	min-height: 100svh;
 	font-family: setting.$font-family;
-	font-size: var(--font-m);
+	font-size: var(--fnt-m);
 	font-weight: map.get(setting.$fontWeight, r);
 	font-feature-settings: "pkna";
 	font-optical-sizing: auto;

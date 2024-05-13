@@ -1,43 +1,49 @@
 'use client';
 import Link from 'next/link';
 import { IconHome } from '@/app/components/svgs/icons';
-import { usePathname, useSelectedLayoutSegments } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import { slugToLabel, labelToSlug } from '@/app/utils/sluglabel';
 
-export default function BreadCrumbs({ pageTitle }) {
-	const segments = useSelectedLayoutSegments();
+export default function BreadCrumbs({ pageTitle, pageType }) {
 	const pathname = decodeURI(usePathname());
-
-	if (segments.length === 0) {
-		return null;
-	}
-
-	const breadcrumbSegments = segments.map((segment, index) => {
-		let title;
-		switch (segment) {
-			case '__DEFAULT__':
-				title = 'お探しのページは見つかりませんでした';
-				break;
-			case 'aboutus':
-				title = 'このサイトについて';
-				break;
-			case 'works':
-				title = 'リスト';
-				break;
-			case 'inquiry':
-				title = 'お問い合わせ';
-				break;
-			case 'terms':
-				title = 'サイト規約';
-				break;
-			case 'privacy-policy':
-				title = 'プライバシーポリシー';
-				break;
-			default:
-				title = segment;
+	let segments = pathname
+		.split('/')
+		.slice(1)
+		.map((segment) => ({
+			label: segment,
+			path: `/${segment}`,
+		}));
+	if (pageType === 'notfound') {
+		segments[0].path = segments.reduce((accumulator, currentValue) => accumulator + currentValue.path, '');
+		segments[0].label = 'お探しのページは見つかりませんでした';
+		segments.splice(1);
+	} else if (segments.length == 1) {
+		segments[0].label = pageTitle;
+	} else if (segments.length > 1) {
+		segments[0].label = 'リスト';
+		if (segments.length == 2) {
+			if (pageType === 'category') {
+				segments[1].label = 'カテゴリー';
+			} else {
+				segments[1].label = 'タグ';
+			}
+			segments[1].path = segments[0].path + segments[1].path;
+		} else {
+			if (pageType === 'category' || pageType === 'tag') {
+				segments.splice(1, 1);
+				segments[1].label = pageType === 'tag' ? `# ${slugToLabel(segments[1].label)}` : slugToLabel(segments[1].label);
+				segments[1].path = `${segments[0].path}/${pageType}${segments[1].path}`;
+				segments.splice(2);
+			} else if (pageType === 'paged') {
+				segments.splice(1);
+			} else {
+				segments[1].label = slugToLabel(segments[1].label);
+				segments[1].path = `${segments[0].path}/category${segments[1].path}`;
+				segments[2].label = pageTitle;
+				segments[2].path = `${segments[0].path}/${labelToSlug(segments[1].label)}${segments[2].path}`;
+			}
 		}
-		let uri = segment == '__DEFAULT__' ? pathname : '/' + segments.slice(0, index + 1).join('/');
-		return { title, uri };
-	});
+	}
 
 	return (
 		<nav className='o-center u-px-clamp u-pb-xl' aria-label='Breadcrumb'>
@@ -48,22 +54,19 @@ export default function BreadCrumbs({ pageTitle }) {
 						<span className='u-fnt-wx u-fx-shn'>トップページ</span>
 					</Link>
 				</li>
-				{breadcrumbSegments.map((breadcrumb, index) => {
-					const isLast = index === breadcrumbSegments.length - 1;
-					return (
-						<li className='c-breadcrumb-item' key={index}>
-							{isLast ? (
-								<Link className='c-content-l c-lnk-txt' href={breadcrumb.uri} aria-current='page'>
-									{pageTitle || breadcrumb.title}
-								</Link>
-							) : (
-								<Link className='c-content-l c-lnk-txt' href={breadcrumb.uri}>
-									{breadcrumb.title}
-								</Link>
-							)}
-						</li>
-					);
-				})}
+				{segments.map((segment, index) => (
+					<li className='c-breadcrumb-item' key={index}>
+						<span className='u-fnt-wx u-fx-shn'>
+							<Link
+								className='c-content-l c-lnk-txt'
+								href={segment.path}
+								aria-current={index === segments.length - 1 ? 'page' : undefined}
+							>
+								{segment.label}
+							</Link>
+						</span>
+					</li>
+				))}
 			</ol>
 		</nav>
 	);

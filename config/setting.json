@@ -2,10 +2,19 @@
 	"site": {
 		"host": "www.shin-kamenwriter.com",
 		"title": "シン・仮面ライター",
-		"description": "",
+		"description": "仮面ライターから分離したポートフォリオ成分を集約した、Next.js製サテライトサイト",
 		"keywords": ["シン・仮面ライター", "シン仮面ライター", "シン・カメンライター", "シンカメンライター"],
-		"gtm": "GTM-P3T2XVD",
-		"themecolor": ""
+		"themecolor": "#030303"
+	},
+	"facebook": {
+		"author": "https://www.facebook.com/yuuji.hasegawa/",
+		"publisher": "https://www.facebook.com/kamenwriter01/"
+	},
+	"twitter": {
+		"site": "@kamenwriter02",
+		"siteId": "1127061007",
+		"creator": "@kamenwriter01",
+		"creatorId": "187073661"
 	},
 	"company": {
 		"name": "仮面ライター",
