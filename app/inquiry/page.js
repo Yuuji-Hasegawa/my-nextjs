@@ -1,6 +1,6 @@
 import config from '@/config/setting.json';
 
-import Form from '@/app/components/forms/form';
+import FormClient from '@/app/components/forms/formClient';
 import BreadCrumbs from '@/app/components/includes/breadcrumbs';
 import JsonLd from '@/app/components/includes/jsonld';
 const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
@@ -40,7 +40,7 @@ export default function Inquiry() {
 					<br />
 					ご相談・ご質問は、こちらからお気軽にお問い合わせください。
 				</p>
-				<Form />
+				<FormClient />
 				<ul className='o-stack u-space-xs u-insert-stack'>
 					<li className='c-note c-content-m u-fnt-wx'>
 						調査等のため、返信にお時間を頂くことがございます。予めご了承ください。

@@ -313,6 +313,6 @@ export async function generateStaticParams() {
 
 	return works.map((work) => ({
 		slug: work.slug,
-    category: labelToSlug(work.category),
-  }));
+		category: labelToSlug(work.category),
+	}));
 }

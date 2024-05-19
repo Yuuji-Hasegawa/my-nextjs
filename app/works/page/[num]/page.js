@@ -71,7 +71,7 @@ export async function generateStaticParams() {
 	const { numberPages } = await getAllWorks();
 
 	const paths = Array.from({ length: numberPages }).map((_, index) => ({
-    num: `${index + 2}`,
-  }));
-  return paths;
+		num: `${index + 2}`,
+	}));
+	return paths;
 }

@@ -3,6 +3,8 @@ import { useState, useCallback } from 'react';
 import Link from 'next/link';
 import config from '@/config/setting.json';
 
+export const GATEWAY_URL = process.env.NEXT_PUBLIC_GATEWAY_URL;
+
 export default function Form() {
 	const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
 	const [formData, setFormData] = useState({
@@ -12,6 +14,8 @@ export default function Form() {
 		acceptance: false,
 		nameError: '',
 		emailError: '',
+		submissionError: '',
+		submissionSuccess: false,
 	});
 
 	const handleAccept = useCallback(
@@ -62,8 +66,58 @@ export default function Form() {
 		},
 		[formData],
 	);
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		if (!formData.name || !formData.email || !formData.message || !formData.acceptance) {
+			setFormData({
+				...formData,
+				submissionError: '入力内容に不備があります。入力内容を確認して、もう一度送信してください。',
+			});
+			return;
+		}
+
+		const payload = {
+			name: formData.name,
+			email: formData.email,
+			message: formData.message,
+		};
+
+		try {
+			const response = await fetch(GATEWAY_URL, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(payload),
+			});
+
+			if (!response.ok) {
+				throw new Error('送信に失敗しました');
+			}
+
+			setFormData({
+				name: '',
+				email: '',
+				message: '',
+				acceptance: false,
+				nameError: '',
+				emailError: '',
+				submissionError: '',
+				submissionSuccess: true,
+			});
+		} catch (error) {
+			setFormData({
+				...formData,
+				submissionError: error.message,
+				submissionSuccess: false,
+			});
+		}
+	};
+
 	return (
-		<form className='u-mb-xl' method='post' aria-label='Inquiry Form'>
+		<form className='u-mb-xl' method='post' aria-label='Inquiry Form' onSubmit={handleSubmit}>
 			<ul className='o-stack u-space-l u-insert-stack u-mb-xl'>
 				<li className='c-form-item'>
 					<label className='c-input-label u-dsp-ifx u-fx-y-ctr u-mb-s' htmlFor='name'>
@@ -185,6 +239,12 @@ export default function Form() {
 			>
 				送信する
 			</button>
+			{formData.submissionError && (
+				<span className='c-form-error c-suppl-l :txt-alert u-fnt-wl'>{formData.submissionError}</span>
+			)}
+			{formData.submissionSuccess && (
+				<span className='c-form-success c-suppl-l :txt-success u-fnt-wl'>送信が成功しました</span>
+			)}
 		</form>
 	);
 }

@@ -5,7 +5,7 @@ import Pagination from '@/app/components/includes/pagination';
 import Thumb from '@/app/components/includes/thumb';
 import { metadata as defaultMetadata } from '@/app/layout';
 import { getCategoryWorks, worksPerPage, getAllWorks } from '@/app/utils/mdQueries';
-import { slugToLabel,labelToSlug } from '@/app/utils/sluglabel';
+import { slugToLabel, labelToSlug } from '@/app/utils/sluglabel';
 
 import config from '@/config/setting.json';
 
@@ -76,6 +76,6 @@ export async function generateStaticParams() {
 	const { works } = await getAllWorks();
 
 	return works.map((work) => ({
-    category: labelToSlug(work.category),
-  }));
+		category: labelToSlug(work.category),
+	}));
 }

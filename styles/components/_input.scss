@@ -97,3 +97,18 @@
 		}
 	}
 }
+.c-message-box {
+	visibility: hidden;
+  opacity: 0;
+  height: 0;
+	padding: 0 var(--space-m);
+	transition: all .3s ease-in-out;
+	&.\:is-view {
+		margin-top: setting.f-get-space(l);
+		opacity: 1;
+		visibility: visible;
+		height: auto;
+		padding-top: var(--space-xs);
+		padding-bottom: var(--space-xs);
+	}
+}

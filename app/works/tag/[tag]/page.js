@@ -75,10 +75,10 @@ export default TagWorks;
 export async function generateStaticParams() {
 	const { works } = await getAllWorks();
 
-	const paths = works.flatMap(work => {
-		return work.tags.map(tag => {
+	const paths = works.flatMap((work) => {
+		return work.tags.map((tag) => {
 			return {
-				tag: labelToSlug(tag)
+				tag: labelToSlug(tag),
 			};
 		});
 	});

@@ -4,3 +4,19 @@
 .u-border-radius-s {
 	--border-radius: #{map.get(setting.$borderRadius, s)};
 }
+.\:success {
+	border-color: map.get(setting.$brandColors, myMiddle);
+}
+.\:error {
+	border-color: var(--accent-middle);
+}
+@keyframes borderAnimation {
+  0% { border-color: map.get(setting.$brandColors, myMiddle); }
+  25% { border-color: map.get(setting.$brandColors, myTint); }
+  50% { border-color: map.get(setting.$brandColors, myShade); }
+  75% { border-color: map.get(setting.$brandColors, myTint); }
+  100% { border-color: map.get(setting.$brandColors, myMiddle); }
+}
+.\:sending {
+	animation: borderAnimation 5s infinite;
+}

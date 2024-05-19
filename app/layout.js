@@ -1,6 +1,7 @@
 import '@/styles/styles.scss';
 import { Suspense } from 'react';
 import Gtm from '@/app/components/includes/gtm';
+import ReCAPTCHA from '@/app/components/includes/recaptha';
 import Header from '@/app/components/includes/header';
 import Footer from '@/app/components/includes/footer';
 import { KwLink, BbnLink, NxzLink } from '@/app/components/links/bnr-links';
@@ -101,46 +102,60 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang='ja'>
 			<body>
-				<Suspense>
-					<Gtm />
-				</Suspense>
-				<link
-					rel='preload'
-					href='/fonts/RobotoFlex-VariableFont.woff2'
-					as='font'
-					type='font/woff2'
-					crossOrigin='anonymous'
-				/>
-				<link rel='preload' href='/fonts/YakuHanJP-Thin.woff2' as='font' type='font/woff2' crossOrigin='anonymous' />
-				<link
-					rel='preload'
-					href='/fonts/YakuHanJP-DemiLight.woff2'
-					as='font'
-					type='font/woff2'
-					crossOrigin='anonymous'
-				/>
-				<link rel='preload' href='/fonts/YakuHanJP-Light.woff2' as='font' type='font/woff2' crossOrigin='anonymous' />
-				<link rel='preload' href='/fonts/YakuHanJP-Regular.woff2' as='font' type='font/woff2' crossOrigin='anonymous' />
-				<link rel='preload' href='/fonts/YakuHanJP-Medium.woff2' as='font' type='font/woff2' crossOrigin='anonymous' />
-				<link rel='preload' href='/fonts/YakuHanJP-Bold.woff2' as='font' type='font/woff2' crossOrigin='anonymous' />
-				<Header />
-				<main>{children}</main>
-				{/* common-cta */}
-				<div className='o-box o-center :brd-h u-py-l u-px-clamp'>
-					<ul className='o-switcher'>
-						<li>
-							<KwLink className='c-display-xl :bg-ghost u-dsp-fx u-fx-ctr u-py-l' />
-						</li>
-						<li>
-							<BbnLink className='c-display-xl :bg-ghost u-dsp-fx u-fx-ctr u-py-l' />
-						</li>
-						<li>
-							<NxzLink className='c-display-xl :bg-ghost u-dsp-fx u-fx-ctr u-py-l' />
-						</li>
-					</ul>
-				</div>
-				<Footer />
-				<InsertSw />
+				<ReCAPTCHA>
+					<Suspense>
+						<Gtm />
+					</Suspense>
+					<link
+						rel='preload'
+						href='/fonts/RobotoFlex-VariableFont.woff2'
+						as='font'
+						type='font/woff2'
+						crossOrigin='anonymous'
+					/>
+					<link rel='preload' href='/fonts/YakuHanJP-Thin.woff2' as='font' type='font/woff2' crossOrigin='anonymous' />
+					<link
+						rel='preload'
+						href='/fonts/YakuHanJP-DemiLight.woff2'
+						as='font'
+						type='font/woff2'
+						crossOrigin='anonymous'
+					/>
+					<link rel='preload' href='/fonts/YakuHanJP-Light.woff2' as='font' type='font/woff2' crossOrigin='anonymous' />
+					<link
+						rel='preload'
+						href='/fonts/YakuHanJP-Regular.woff2'
+						as='font'
+						type='font/woff2'
+						crossOrigin='anonymous'
+					/>
+					<link
+						rel='preload'
+						href='/fonts/YakuHanJP-Medium.woff2'
+						as='font'
+						type='font/woff2'
+						crossOrigin='anonymous'
+					/>
+					<link rel='preload' href='/fonts/YakuHanJP-Bold.woff2' as='font' type='font/woff2' crossOrigin='anonymous' />
+					<Header />
+					<main>{children}</main>
+					{/* common-cta */}
+					<div className='o-box o-center :brd-h u-py-l u-px-clamp'>
+						<ul className='o-switcher'>
+							<li>
+								<KwLink className='c-display-xl :bg-ghost u-dsp-fx u-fx-ctr u-py-l' />
+							</li>
+							<li>
+								<BbnLink className='c-display-xl :bg-ghost u-dsp-fx u-fx-ctr u-py-l' />
+							</li>
+							<li>
+								<NxzLink className='c-display-xl :bg-ghost u-dsp-fx u-fx-ctr u-py-l' />
+							</li>
+						</ul>
+					</div>
+					<Footer />
+					<InsertSw />
+				</ReCAPTCHA>
 			</body>
 		</html>
 	);

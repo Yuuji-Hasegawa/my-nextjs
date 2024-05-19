@@ -78,14 +78,14 @@ export async function generateStaticParams() {
 
 	let paths = [];
 
-	works.forEach(work => {
-		work.tags.forEach(tag => {
+	works.forEach((work) => {
+		work.tags.forEach((tag) => {
 			const tagSlug = labelToSlug(tag);
 			for (let i = 1; i <= numberPages; i++) {
-			paths.push({
-				tag: tagSlug,
-				num: `${i}`
-			});
+				paths.push({
+					tag: tagSlug,
+					num: `${i}`,
+				});
 			}
 		});
 	});
