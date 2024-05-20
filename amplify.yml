@@ -3,17 +3,16 @@ frontend:
   phases:
     preBuild:
       commands:
-        - curl -fsSL https://get.pnpm.io/install.sh | sh -
-        - export PATH=$HOME/.local/share/pnpm:$PATH
-        - pnpm install
+        - 'curl -fsSL https://get.pnpm.io/install.sh | sh -'
+        - 'export PATH=$HOME/.local/share/pnpm:$PATH'
+        - 'pnpm install'
     build:
       commands:
-        - pnpm run build
+        - 'pnpm run build:next'
   artifacts:
     baseDirectory: out
     files:
       - '**/*'
   cache:
     paths:
-      - node_modules/**/*
-      - .pnpm-store/**/*
+      - 'node_modules/**/*'
