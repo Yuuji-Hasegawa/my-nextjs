@@ -1,6 +1,6 @@
 import config from '@/config/setting.json';
 
-import FormClient from '@/app/components/forms/formClient';
+//import FormClient from '@/app/components/forms/formClient';
 import BreadCrumbs from '@/app/components/includes/breadcrumbs';
 import JsonLd from '@/app/components/includes/jsonld';
 const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
