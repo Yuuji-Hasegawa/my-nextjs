@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	//output: 'export',
 	webpack: function (config) {
 		config.module.rules.push({
 			test: /\.md$/,
