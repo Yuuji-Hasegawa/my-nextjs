@@ -5,8 +5,7 @@
 	"scripts": {
 		"dev": "run-p image icon dev:next",
 		"dev:next": "next dev",
-		"build": "next build && next export",
-		"build:next": "next build",
+		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
 		"lint:fix": "next lint --fix",
