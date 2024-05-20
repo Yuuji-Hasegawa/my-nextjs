@@ -8,6 +8,8 @@ frontend:
         - 'pnpm install'
     build:
       commands:
+				- 'env | grep -e NEXT_PUBLIC_ >> .env.production'
+				- 'echo "RECAPTCHA_SECRET_KEY=6Lcap98pAAAAAOpzjvvIOrVMyZSXYHqqGTytVzbB" >> .env.production'
         - 'pnpm run build'
   artifacts:
     baseDirectory: .next
