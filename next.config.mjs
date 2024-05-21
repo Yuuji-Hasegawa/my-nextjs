@@ -14,6 +14,9 @@ const nextConfig = {
 		})
 		return config
 	},
+	images: {
+    disableStaticImages: true,
+  },
 };
 
 export default nextConfig;
