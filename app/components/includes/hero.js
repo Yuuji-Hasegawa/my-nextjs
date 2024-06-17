@@ -1,8 +1,8 @@
 import { LogoLetter, LogoMark } from '@/app/components/svgs/brands';
 
 const Hero = () => (
-	<div className='o-sidebar :hero-gutter'>
-		<div className='o-cover :ch-glow :hr-ord-rev'>
+	<div className='c-hero-wrapper u-dsp-fx'>
+		<div className='o-cover c-hero-title'>
 			<h1 className='o-stack c-hero u-my-auto u-px-m u-fx-y-ctr'>
 				<span className='u-fnt-wx'>ポートフォリオ分離企画</span>
 				<span className='u-dsp-fx'>
@@ -12,8 +12,8 @@ const Hero = () => (
 				<span className='u-fnt-wx'>当サイトにて随時更新中</span>
 			</h1>
 		</div>
-		<div className='u-mx-auto'>
-			<LogoMark className='c-hero-mark' />
+		<div className='c-hero-mask'>
+			<LogoMark className='c-hero-mask__inner' />
 		</div>
 	</div>
 );

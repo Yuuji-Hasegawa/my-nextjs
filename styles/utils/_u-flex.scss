@@ -15,9 +15,3 @@
 .\:ch-glow {
 	flex-grow: 1;
 }
-
-.\:hr-ord-rev {
-	@include tool.max-screen(703px) {
-		order: 2;
-	}
-}

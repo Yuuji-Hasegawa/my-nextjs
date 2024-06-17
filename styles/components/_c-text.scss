@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:math";
 @use "../settings" as setting;
 @use "../tools/" as tool;
 
@@ -141,6 +142,29 @@
 		color: color-mix(in oklab, currentcolor, transparent 15%);
 	}
 }
+.c-hero-wrapper {
+	flex-wrap: wrap;
+	gap: clamp(#{setting.f-get-space(xl)}, #{map.get(setting.$breakpoints,overm)}, #{setting.f-get-space(3xl)});
+	@include tool.max-screen(setting.$breakm - 1px) {
+		flex-direction: column-reverse;
+	}
+}
+.c-hero-title {
+	@include tool.min-screen(setting.$breakm) {
+		flex-grow: 1;
+	}
+}
+.c-hero-mask {
+	margin: auto;
+	&__inner {
+		@include tool.max-screen(setting.$breakm - 1px) {
+			font-size: calc(100vw * math.div(32, 25));
+		}
+		@include tool.min-screen(setting.$breakm) {
+			font-size: clamp((100svh - (112px + 56px + setting.f-get-space(2xl))), map.get(setting.$breakpoints,overm), 100svh - 56px);
+		}
+	}
+}
 
 .c-hero {
 	& > :not(:first-of-type,:last-of-type) {
@@ -156,10 +180,6 @@
 	& > :last-of-type {
 		font-size: clamp(setting.f-font-size(l), map.get(setting.$breakpoints,overm), setting.f-font-size(m) + setting.f-font-size(2xl));
 	}
-}
-
-.c-hero-mark {
-	font-size: clamp((100svh - (112px + 56px + setting.f-get-space(2xl))), map.get(setting.$breakpoints,overm), 100svh - 56px);
 }
 .c-note {
 	position: relative;
