@@ -17,6 +17,7 @@ export const slugMap = {
 	ダークモード: 'darkmode',
 	高速表示: 'speedup',
 	'Next.js': 'nextjs',
+	Astrojs: 'astrojs',
 };
 
 export function labelToSlug(label) {
