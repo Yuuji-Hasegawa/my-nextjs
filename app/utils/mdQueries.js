@@ -83,7 +83,8 @@ function shuffleArray(array) {
 }
 
 export async function getSingleWork(context) {
-	const { slug } = context.params;
+	const params = await context.params;
+	const { slug } = params;
 	try {
 		const data = await import(`@/posts/${slug}.md`);
 		const singleWork = matter(data.default);

@@ -4,7 +4,8 @@ const nextConfig = {
 	experimental: {
     workerThreads: false,
     cpus: 1
-  },
+	},
+	turbopack: {},
 	webpack: function (config) {
 		config.module.rules.push({
 			test: /\.md$/,

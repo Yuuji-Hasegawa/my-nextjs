@@ -2,7 +2,7 @@
 @use "../settings" as setting;
 
 @each $key, $name in setting.$fontScale {
-	$is_target: if($key == 2xl or $key == 3xl, true, false);
+	$is_target: $key == 2xl or $key == 3xl;
 	@if $is_target {
 		.u-fnt-#{$key} {
 			font-size: var(--fnt-#{$key});
@@ -10,7 +10,7 @@
 	}
 }
 @each $key, $name in setting.$fontWeight {
-	$is_target: if($key == t or $key == x or $key == l, true, false);
+	$is_target: $key == t or $key == x or $key == l;
 	@if $is_target {
 		.u-fnt-w#{$key} {
 			font-weight: map.get(setting.$fontWeight, $key);

@@ -10,7 +10,8 @@ import { slugToLabel, labelToSlug } from '@/app/utils/sluglabel';
 import config from '@/config/setting.json';
 
 export async function generateMetadata(props) {
-	const slug = props.params.tag;
+	const params = await props.params;
+	const slug = params.tag;
 	const label = slugToLabel(slug);
 	const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
 	const pathname = '/works/tag';
@@ -39,7 +40,8 @@ export async function generateMetadata(props) {
 }
 
 const TagWorks = async (props) => {
-	const tagSlug = props.params.tag;
+	const params = await props.params;
+	const tagSlug = params.tag;
 	const tagLabel = slugToLabel(tagSlug);
 
 	const { works, numberPages } = await getTagsWorks({ tag: tagLabel });

@@ -10,11 +10,12 @@ import { slugToLabel, labelToSlug } from '@/app/utils/sluglabel';
 import config from '@/config/setting.json';
 
 export async function generateMetadata(props) {
-	const slug = props.params.category;
+	const params = await props.params;
+	const slug = params.category;
 	const label = slugToLabel(slug);
 	const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
 	const pathname = '/works/category';
-	const uri = protocol + config.site.host + pathname + `/${slug}` + '/' + props.params.num;
+	const uri = protocol + config.site.host + pathname + `/${slug}` + '/' + params.num;
 
 	return {
 		...defaultMetadata,
@@ -39,11 +40,12 @@ export async function generateMetadata(props) {
 }
 
 const CategoryPaginationWorks = async (props) => {
-	const categorySlug = props.params.category;
+	const params = await props.params;
+	const categorySlug = params.category;
 	const categoryLabel = slugToLabel(categorySlug);
 
 	const { works, numberPages } = await getCategoryWorks({ category: categoryLabel });
-	const currentPage = props.params.num;
+	const currentPage = params.num;
 	const limitedWorks = works.slice((currentPage - 1) * worksPerPage, currentPage * worksPerPage);
 
 	return (

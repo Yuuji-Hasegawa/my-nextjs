@@ -26,9 +26,10 @@ function nl2br(str) {
 }
 
 export async function generateMetadata(props) {
+	const params = await props.params;
 	const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
 	const pathname = '/works';
-	const uri = protocol + config.site.host + pathname + `/${props.params.category}` + `/${props.params.slug}`;
+	const uri = protocol + config.site.host + pathname + `/${params.category}` + `/${params.slug}`;
 	const { singleWork } = await getSingleWork(props);
 
 	const ogpImg = singleWork.data.image
@@ -79,8 +80,9 @@ export async function generateMetadata(props) {
 }
 
 const SingleWork = async (props) => {
-	const categorySlug = props.params.category;
-	const pageSlug = props.params.slug;
+	const params = await props.params;
+	const categorySlug = params.category;
+	const pageSlug = params.slug;
 	const { singleWork } = await getSingleWork(props);
 	const id = singleWork.data.id;
 	let lastWorks = await getAllWorks();

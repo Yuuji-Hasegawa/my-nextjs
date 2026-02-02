@@ -9,9 +9,10 @@ import { getAllWorks, worksPerPage } from '@/app/utils/mdQueries';
 import config from '@/config/setting.json';
 
 export async function generateMetadata(props) {
+	const params = await props.params;
 	const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://';
 	const pathname = '/works';
-	const uri = protocol + config.site.host + pathname + '/' + props.params.num;
+	const uri = protocol + config.site.host + pathname + '/' + params.num;
 
 	return {
 		...defaultMetadata,
@@ -37,7 +38,8 @@ export async function generateMetadata(props) {
 
 const PaginationWorks = async (props) => {
 	const { works, numberPages } = await getAllWorks();
-	const currentPage = props.params.num;
+	const params = await props.params;
+	const currentPage = params.num;
 	const limitedWorks = works.slice((currentPage - 1) * worksPerPage, currentPage * worksPerPage);
 
 	return (
